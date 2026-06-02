@@ -1,8 +1,17 @@
 .skill {
-  background: red !important;
-  color: white !important;
-  padding: 20px !important;
+  background: #151823 !important;
+  border: 1px solid #2a2f3d !important;
+  color: #7dd3fc !important;
+  padding: 0.65rem 1rem !important;
+  border-radius: 999px !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
   display: inline-block !important;
+}
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 * {
   box-sizing: border-box;
