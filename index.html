@@ -3,66 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sam Wells | Planning & GIS Portfolio</title>
+  <title>Sam Wells | Planning & GIS</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
+  <aside class="sidebar">
     <h1>Sam Wells</h1>
-    <p>MSc Rural Planning & Development | GIS | Municipal Infrastructure</p>
+    <p>Planning • GIS • Rural Development</p>
+
     <nav>
+      <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#gis">GIS Maps</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
+  </aside>
 
   <main>
-    <section class="hero">
-      <h2>Planning, GIS, and rural development portfolio.</h2>
+    <section class="hero" id="about">
+      <span class="pill">MSc Rural Planning & Development</span>
+      <h2>Planning, GIS, and municipal infrastructure portfolio.</h2>
       <p>
-        I’m a graduate planning student focused on rural land use,
-        transportation, housing, economic development, and applied spatial analysis.
+        Graduate planning student focused on rural transportation, land use,
+        housing, economic development, and applied spatial analysis.
       </p>
     </section>
 
     <section id="projects">
       <h2>Selected Projects</h2>
 
-      <article class="card">
-        <h3>Rural Transportation Mobility in Oxford County</h3>
-        <p>
-          Research paper examining rural transit gaps, service frequency, regional
-          connectivity, and policy options for Oxford County.
-        </p>
-      </article>
+      <div class="grid">
+        <article class="card">
+          <h3>Rural Transportation in Oxford County</h3>
+          <p>Transit gaps, regional connectivity, service frequency, and rural mobility policy.</p>
+          <a href="#">View project →</a>
+        </article>
 
-      <article class="card">
-        <h3>Oxford County Agricultural Systems Project</h3>
-        <p>
-          Municipal project analyzing agricultural systems planning, land use policy,
-          and PPS 2024 implementation.
-        </p>
-      </article>
+        <article class="card">
+          <h3>Agricultural Systems Planning</h3>
+          <p>Oxford County land use policy, PPS 2024 implementation, and agricultural preservation.</p>
+          <a href="#">View project →</a>
+        </article>
 
-      <article class="card">
-        <h3>Climate Adaptation Survey Research</h3>
+        <article class="card">
+          <h3>Climate Adaptation Research</h3>
+          <p>Survey and interview research on climate risk, adaptation, and community planning.</p>
+          <a href="#">View project →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="gis">
+      <h2>GIS / Web Mapping</h2>
+      <div class="card wide">
+        <h3>Interactive GIS demos coming soon</h3>
         <p>
-          Mixed-methods research project using survey and interview data to assess
-          climate adaptation attitudes and policy priorities.
+          Planned maps: Oxford transit gaps, settlement areas, agricultural land,
+          and service accessibility.
         </p>
-      </article>
+      </div>
     </section>
 
     <section id="resume">
       <h2>Resume</h2>
-      <p><a class="button" href="resume.pdf">Download Resume</a></p>
+      <a class="button" href="resume.pdf">Download Resume</a>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sammywoodstock@gmail.com">sammywoodstock@gmail.com</a></p>
-      <p>LinkedIn: <a href="#">Add your LinkedIn URL</a></p>
+      <p><a href="mailto:sammywoodstock@gmail.com">sammywoodstock@gmail.com</a></p>
+      <p><a href="#">LinkedIn</a></p>
     </section>
   </main>
 </body>
