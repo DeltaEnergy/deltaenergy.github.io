@@ -306,3 +306,17 @@ h2 {
     font-size: 1rem;
   }
 }
+.project-body {
+  display: flex;
+}
+
+.project-body main {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+  max-width: 900px;
+  padding: 3rem;
+}
+
+.project-body .sidebar {
+  position: fixed;
+}
