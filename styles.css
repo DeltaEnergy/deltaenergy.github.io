@@ -372,3 +372,12 @@ body {
   display: block !important;
   width: 100% !important;
 }
+#main-site {
+  width: 100%;
+}
+
+#main-site main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
