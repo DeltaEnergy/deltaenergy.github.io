@@ -364,3 +364,11 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+#main-site > main {
+  display: block !important;
+}
+
+#main-site > main > section {
+  display: block !important;
+  width: 100% !important;
+}
