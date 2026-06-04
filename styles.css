@@ -491,3 +491,26 @@ body.light-mode #main-site .skill {
   color: #0369a1;
   border-color: #bfdbfe;
 }
+body.light-mode .landing,
+body.light-mode .landing h1,
+body.light-mode .landing p,
+body.light-mode .landing a {
+  color: white !important;
+}
+
+body.light-mode .landing-button {
+  border-color: white !important;
+  color: white !important;
+}
+
+body.light-mode .landing-button:hover {
+  background: white !important;
+  color: black !important;
+}
+
+body.light-mode .landing-overlay {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.50),
+    rgba(0, 0, 0, 0.25)
+  ) !important;
+}
