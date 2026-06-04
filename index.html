@@ -111,17 +111,28 @@
   </div>
 
   <script>
-    const toggle = document.getElementById("theme-toggle");
+  const toggle = document.getElementById("theme-toggle");
+  const mainSite = document.getElementById("main-site");
 
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
 
-      if (document.body.classList.contains("light-mode")) {
-        toggle.textContent = "🌙";
-      } else {
-        toggle.textContent = "☀️";
-      }
-    });
-  </script>
+    if (document.body.classList.contains("light-mode")) {
+      toggle.textContent = "🌙";
+    } else {
+      toggle.textContent = "☀️";
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    const triggerPoint = mainSite.offsetTop - 100;
+
+    if (window.scrollY > triggerPoint) {
+      toggle.classList.add("show");
+    } else {
+      toggle.classList.remove("show");
+    }
+  });
+</script>
 </body>
 </html>
