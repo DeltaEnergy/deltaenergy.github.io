@@ -7,9 +7,23 @@
   <title>Sam Wells | Planning & GIS</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+  
+<script>
+  const toggle = document.getElementById("theme-toggle");
 
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+      toggle.textContent = "🌙";
+    } else {
+      toggle.textContent = "☀️";
+    }
+  });
+</script>
 <body>
-
+<button class="theme-toggle" id="theme-toggle">☀️</button>
+  
   <section class="landing">
     <div class="landing-overlay"></div>
 
