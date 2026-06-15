@@ -641,3 +641,25 @@ body.light-mode #main-site .contact-icon {
 body.light-mode #main-site .contact-icon svg {
   fill: #0284c7;
 }
+.project-card-logo {
+  position: relative;
+  padding-right: 4.5rem;
+}
+
+.project-logo {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #0f1117;
+  border: 1px solid #2a2f3d;
+  padding: 6px;
+}
+
+body.light-mode #main-site .project-logo {
+  background: #f8fafc;
+  border: 1px solid #d1d5db;
+}
