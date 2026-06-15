@@ -663,3 +663,103 @@ body.light-mode #main-site .project-logo {
   background: #f8fafc;
   border: 1px solid #d1d5db;
 }
+/* Keep homepage sections stacked properly */
+#main-site main {
+  display: block !important;
+}
+
+#main-site section {
+  display: block !important;
+  width: 100% !important;
+  clear: both !important;
+}
+
+/* Make project grid stay as its own row */
+#projects .grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* Fix GIS section so it appears underneath projects */
+#gis {
+  margin-top: 3rem !important;
+}
+
+#gis .wide {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* OCR logo: no background box */
+.project-logo {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Give the OCR card room for the logo */
+.project-card-logo {
+  position: relative;
+  padding-right: 4.5rem;
+}
+
+/* Logo animation */
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(3deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* Optional hover boost */
+.project-card-logo:hover .project-logo {
+  animation: logoSpin 0.7s ease;
+}
+
+@keyframes logoSpin {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.12) rotate(8deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Mobile fix */
+@media (max-width: 900px) {
+  #projects .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-card-logo {
+    padding-right: 1.4rem;
+  }
+
+  .project-logo {
+    position: static;
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
