@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" href="favicon.png">
@@ -14,11 +15,14 @@
   <section class="landing">
     <div class="landing-overlay"></div>
 
-    <div class="landing-content">
-      <h1>Sam Wells</h1>
-      <p>Rural Planning & Development | GIS | Land Use Planning</p>
-      <a href="#main-site" class="landing-button">View My Work</a>
-    </div>
+```
+<div class="landing-content">
+  <h1>Sam Wells</h1>
+  <p>Rural Planning & Development | GIS | Land Use Planning</p>
+  <a href="#main-site" class="landing-button">View My Work</a>
+</div>
+```
+
   </section>
 
   <div id="main-site">
@@ -32,110 +36,114 @@
         </p>
       </section>
 
-      <section id="skills">
-        <h2>Skills</h2>
+```
+  <section id="skills">
+    <h2>Skills</h2>
 
-        <div class="skills">
-          <span class="skill">ArcGIS Pro</span>
-          <span class="skill">QGIS</span>
-          <span class="skill">Excel</span>
-          <span class="skill">SPSS</span>
-          <span class="skill">NVivo</span>
-          <span class="skill">Qualtrics</span>
-          <span class="skill">R</span>
-          <span class="skill">Asset Management</span>
-          <span class="skill">Transportation Planning</span>
-          <span class="skill">Economic Development</span>
-        </div>
-      </section>
+    <div class="skills">
+      <span class="skill">ArcGIS Pro</span>
+      <span class="skill">QGIS</span>
+      <span class="skill">Excel</span>
+      <span class="skill">SPSS</span>
+      <span class="skill">NVivo</span>
+      <span class="skill">Qualtrics</span>
+      <span class="skill">R</span>
+      <span class="skill">Asset Management</span>
+      <span class="skill">Transportation Planning</span>
+      <span class="skill">Economic Development</span>
+    </div>
+  </section>
 
-      <section id="projects">
-        <h2>Selected Projects</h2>
+  <section id="projects">
+    <h2>Selected Projects</h2>
 
-        <div class="grid">
-          <article class="card">
-            <h3>Rural Transportation in Oxford County</h3>
-            <p>Transit gaps, regional connectivity, service frequency, and rural mobility policy.</p>
-            <a href="#">View project →</a>
-          </article>
+    <div class="grid">
+      <article class="card">
+        <h3>Rural Transportation in Oxford County</h3>
+        <p>Transit gaps, regional connectivity, service frequency, and rural mobility policy.</p>
+        <a href="#">View project →</a>
+      </article>
 
-          <article class="card">
-            <h3>Agricultural Systems Planning</h3>
-            <p>
-              Oxford County land use policy, PPS 2024 implementation,
-              and agricultural preservation.
-            </p>
-            <a href="projects/agricultural-systems.html">View project →</a>
-          </article>
+      <article class="card">
+        <h3>Agricultural Systems Planning</h3>
+        <p>
+          Oxford County land use policy, PPS 2024 implementation,
+          and agricultural preservation.
+        </p>
+        <a href="projects/agricultural-systems.html">View project →</a>
+      </article>
 
-html
-<article class="card">
-  <h3>Local PDF OCR</h3>
-  <p>
-    Privacy-focused OCR tool that converts scanned PDFs into searchable PDFs using
-    a local FastAPI backend, Tesseract OCR, and PyMuPDF.
-  </p>
-  <a href="https://github.com/deltaenergy/local-pdf-ocr" target="_blank">View project →</a>
-</article>
+      <article class="card">
+        <h3>Local PDF OCR</h3>
+        <p>
+          Privacy-focused OCR tool that converts scanned PDFs into searchable PDFs using
+          a local FastAPI backend, Tesseract OCR, and PyMuPDF.
+        </p>
+        <a href="https://github.com/deltaenergy/local-pdf-ocr" target="_blank">View project →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="gis">
+    <h2>GIS / Web Mapping</h2>
+    <div class="card wide">
+      <h3>Interactive GIS demos coming soon</h3>
+      <p>
+        Planned maps: Oxford transit gaps, settlement areas, agricultural land,
+        and service accessibility.
+      </p>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <a class="button" href="resume.pdf">Download Resume</a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+
+    <p>
+      <a href="mailto:sam@samwells.ca">sam@samwells.ca</a>
+    </p>
+
+    <p>
+      <a href="https://www.linkedin.com/in/sammy-wells/"
+         target="_blank"
+         rel="noopener noreferrer">
+        linkedin.com/in/sammy-wells
+      </a>
+    </p>
+  </section>
+</main>
 ```
 
-      <section id="gis">
-        <h2>GIS / Web Mapping</h2>
-        <div class="card wide">
-          <h3>Interactive GIS demos coming soon</h3>
-          <p>
-            Planned maps: Oxford transit gaps, settlement areas, agricultural land,
-            and service accessibility.
-          </p>
-        </div>
-      </section>
-
-      <section id="resume">
-        <h2>Resume</h2>
-        <a class="button" href="resume.pdf">Download Resume</a>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-
-        <p>
-          <a href="mailto:sam@samwells.ca">sam@samwells.ca</a>
-        </p>
-
-        <p>
-          <a href="https://www.linkedin.com/in/sammy-wells/"
-             target="_blank"
-             rel="noopener noreferrer">
-            linkedin.com/in/sammy-wells
-          </a>
-        </p>
-      </section>
-    </main>
   </div>
 
   <script>
-  const toggle = document.getElementById("theme-toggle");
-  const mainSite = document.getElementById("main-site");
+    const toggle = document.getElementById("theme-toggle");
+    const mainSite = document.getElementById("main-site");
 
-  toggle.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
 
-    if (document.body.classList.contains("light-mode")) {
-      toggle.textContent = "🌙";
-    } else {
-      toggle.textContent = "☀️";
-    }
-  });
+      if (document.body.classList.contains("light-mode")) {
+        toggle.textContent = "🌙";
+      } else {
+        toggle.textContent = "☀️";
+      }
+    });
 
-  window.addEventListener("scroll", () => {
-    const triggerPoint = mainSite.offsetTop - 100;
+    window.addEventListener("scroll", () => {
+      const triggerPoint = mainSite.offsetTop - 100;
 
-    if (window.scrollY > triggerPoint) {
-      toggle.classList.add("show");
-    } else {
-      toggle.classList.remove("show");
-    }
-  });
-</script>
+      if (window.scrollY > triggerPoint) {
+        toggle.classList.add("show");
+      } else {
+        toggle.classList.remove("show");
+      }
+    });
+  </script>
+
 </body>
 </html>
