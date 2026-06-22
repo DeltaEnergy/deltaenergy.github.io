@@ -763,3 +763,27 @@ body.light-mode #main-site .project-logo {
     margin-bottom: 1rem;
   }
 }
+.featured-project {
+  border-color: rgba(56, 189, 248, 0.45);
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 35%),
+    rgba(15, 23, 42, 0.72);
+}
+
+.project-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  border-radius: 999px;
+  color: #67e8f9;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.project-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
