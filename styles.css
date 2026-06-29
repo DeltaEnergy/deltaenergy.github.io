@@ -1337,3 +1337,157 @@ body.light-mode .landing-overlay {
     transition: none !important;
   }
 }
+
+
+/* -------------------------------------------------------
+   HERO POLISH FIX — scale up, pull panels inward, brighten
+   Paste this at the VERY BOTTOM of styles.css
+------------------------------------------------------- */
+
+.landing {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(125, 211, 252, 0.18), transparent 26rem),
+    radial-gradient(circle at 70% 26%, rgba(37, 99, 235, 0.28), transparent 32rem),
+    radial-gradient(circle at 24% 78%, rgba(20, 184, 166, 0.14), transparent 28rem),
+    linear-gradient(135deg, rgba(15, 17, 23, 0.58), rgba(15, 17, 23, 0.86)),
+    url("images/hero.jpg") !important;
+  background-size: auto, auto, auto, auto, cover !important;
+  background-position: center, center, center, center, center 58% !important;
+}
+
+.landing-overlay {
+  background:
+    linear-gradient(90deg, rgba(15, 17, 23, 0.76), rgba(15, 17, 23, 0.34) 48%, rgba(15, 17, 23, 0.66)),
+    linear-gradient(180deg, rgba(15, 17, 23, 0.06), rgba(15, 17, 23, 0.70)) !important;
+}
+
+.landing-content {
+  width: min(1320px, calc(100% - 4rem));
+  transform: translateX(-2vw);
+}
+
+.landing-kicker {
+  margin-bottom: 1.25rem;
+  font-size: clamp(0.78rem, 0.7vw, 0.95rem);
+}
+
+.landing-content h1 {
+  font-size: clamp(6rem, 10.5vw, 15rem);
+  line-height: 0.76;
+  letter-spacing: -0.125em;
+}
+
+.landing-content p {
+  max-width: 840px;
+  font-size: clamp(1.25rem, 1.35vw, 1.85rem);
+  margin-top: 1.8rem;
+}
+
+.landing-actions {
+  margin-top: 2.25rem;
+}
+
+.landing-button {
+  min-height: 56px;
+  padding: 0 1.55rem;
+  font-size: 1rem;
+}
+
+.panel-map {
+  left: min(calc(50% + 510px), calc(100% - 620px));
+  right: auto;
+  top: 13vh;
+  width: min(31vw, 520px);
+}
+
+.panel-data {
+  left: min(calc(50% + 390px), calc(100% - 430px));
+  right: auto;
+  bottom: 16vh;
+  width: min(19vw, 340px);
+}
+
+.panel-tools {
+  left: max(5rem, calc(50% - 1040px));
+  bottom: 16vh;
+  width: min(24vw, 410px);
+  opacity: 0.86;
+}
+
+.landing-grid {
+  opacity: 0.62;
+}
+
+.landing-scanline {
+  opacity: 0.28;
+}
+
+.scroll-cue {
+  bottom: 2.4rem;
+}
+
+/* Keep the improved hero from getting weird on normal laptops */
+@media (max-width: 1300px) {
+  .landing-content {
+    width: min(1050px, calc(100% - 3rem));
+    transform: none;
+  }
+
+  .landing-content h1 {
+    font-size: clamp(5rem, 13vw, 11rem);
+  }
+
+  .panel-map {
+    right: 4vw;
+    left: auto;
+    width: min(36vw, 460px);
+  }
+
+  .panel-data {
+    right: 14vw;
+    left: auto;
+    width: min(23vw, 300px);
+  }
+
+  .panel-tools {
+    left: 5vw;
+    width: min(28vw, 360px);
+  }
+}
+
+/* Mobile: keep your existing readable layout */
+@media (max-width: 900px) {
+  .landing {
+    min-height: 720px;
+  }
+
+  .landing-content {
+    width: calc(100% - 2rem);
+    transform: none;
+  }
+
+  .landing-content h1 {
+    font-size: clamp(4.2rem, 22vw, 7rem);
+  }
+
+  .landing-content p {
+    font-size: 1.05rem;
+  }
+
+  .panel-map {
+    left: auto;
+    right: -26vw;
+    width: 80vw;
+  }
+
+  .panel-data {
+    left: auto;
+    right: -18vw;
+  }
+
+  .panel-tools {
+    left: -18vw;
+    width: 72vw;
+  }
+}
