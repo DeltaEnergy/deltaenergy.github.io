@@ -1496,3 +1496,36 @@ body.light-mode .landing-overlay {
   letter-spacing: -0.075em !important;
   line-height: 0.82 !important;
 }
+/* Final desktop hero composition */
+@media (min-width: 901px) {
+  .landing-content {
+    width: min(1180px, calc(100% - 6rem)) !important;
+    transform: translateX(3vw);
+  }
+
+  .landing-content h1 {
+    font-size: clamp(7.5rem, 11vw, 13rem) !important;
+    letter-spacing: -0.07em !important;
+    line-height: 0.82 !important;
+  }
+
+  .landing-content p {
+    font-size: clamp(1.2rem, 1.35vw, 1.55rem) !important;
+    margin-top: 1.4rem !important;
+  }
+
+  .panel-map {
+    right: 9vw !important;
+    top: 13vh !important;
+  }
+
+  .panel-data {
+    right: 15vw !important;
+    bottom: 15vh !important;
+  }
+
+  .panel-tools {
+    left: 4vw !important;
+    bottom: 16vh !important;
+  }
+}
