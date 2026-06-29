@@ -1593,3 +1593,42 @@ body {
     transform: translateY(0);
   }
 }
+/* Layered hero text fade-in */
+.landing-kicker,
+.landing-content h1,
+.landing-content p,
+.landing-actions {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: heroLayerFade 800ms ease forwards;
+}
+
+.landing-kicker {
+  animation-delay: 180ms;
+}
+
+.landing-content h1 {
+  animation-delay: 280ms;
+}
+
+.landing-content p {
+  animation-delay: 430ms;
+}
+
+.landing-actions {
+  animation-delay: 560ms;
+}
+
+@keyframes heroLayerFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
