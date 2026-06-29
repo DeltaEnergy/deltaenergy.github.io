@@ -1566,3 +1566,30 @@ body {
     transform: scale(1);
   }
 }
+/* Keep hero buttons synced on load */
+.landing-actions {
+  opacity: 0;
+  animation: heroButtonsIn 700ms ease 260ms forwards;
+}
+
+.landing-button {
+  animation: none !important;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease !important;
+}
+
+@keyframes heroButtonsIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
