@@ -12,14 +12,66 @@
 <body>
   <button class="theme-toggle" id="theme-toggle">☀️</button>
 
-  <section class="landing">
+  <section class="landing" id="top">
+    <div class="landing-orb orb-one"></div>
+    <div class="landing-orb orb-two"></div>
+    <div class="landing-grid" aria-hidden="true"></div>
+    <div class="landing-scanline" aria-hidden="true"></div>
+    <div class="landing-noise" aria-hidden="true"></div>
+
+    <div class="landing-visuals" aria-hidden="true">
+      <div class="hero-panel panel-map">
+        <div class="panel-topbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="mini-map">
+          <span class="parcel parcel-a"></span>
+          <span class="parcel parcel-b"></span>
+          <span class="parcel parcel-c"></span>
+          <span class="route route-a"></span>
+          <span class="route route-b"></span>
+          <span class="map-pin pin-a"></span>
+          <span class="map-pin pin-b"></span>
+        </div>
+        <p>Greyfield Finder</p>
+      </div>
+
+      <div class="hero-panel panel-data">
+        <span class="panel-label">Planning Dashboard</span>
+        <strong>87</strong>
+        <p>redevelopment score</p>
+        <div class="data-bars">
+          <span style="--bar: 78%"></span>
+          <span style="--bar: 62%"></span>
+          <span style="--bar: 91%"></span>
+        </div>
+      </div>
+
+      <div class="hero-panel panel-tools">
+        <span>ArcGIS Pro</span>
+        <span>QGIS</span>
+        <span>Python</span>
+        <span>Municipal Data</span>
+      </div>
+    </div>
+
     <div class="landing-overlay"></div>
 
     <div class="landing-content">
+      <span class="landing-kicker">Planning · GIS · Municipal Infrastructure</span>
       <h1>Sam Wells</h1>
       <p>Rural Planning & Development | GIS | Land Use Planning</p>
-      <a href="#main-site" class="landing-button">View My Work</a>
+      <div class="landing-actions">
+        <a href="#main-site" class="landing-button primary">View My Work</a>
+        <a href="resume.pdf" class="landing-button secondary" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
     </div>
+
+    <a href="#main-site" class="scroll-cue" aria-label="Scroll to portfolio">
+      <span></span>
+    </a>
   </section>
 
   <div id="main-site">
@@ -187,6 +239,19 @@
         toggle.classList.remove("show");
       }
     });
+
+    const landing = document.querySelector(".landing");
+
+    if (landing) {
+      landing.addEventListener("pointermove", (event) => {
+        const rect = landing.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+        landing.style.setProperty("--mouse-x", `${x}%`);
+        landing.style.setProperty("--mouse-y", `${y}%`);
+      });
+    }
   </script>
 </body>
 </html>
