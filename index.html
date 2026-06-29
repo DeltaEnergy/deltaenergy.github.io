@@ -216,42 +216,49 @@
     </main>
   </div>
 
-  <script>
-    const toggle = document.getElementById("theme-toggle");
-    const mainSite = document.getElementById("main-site");
+<script>
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
 
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-
-      if (document.body.classList.contains("light-mode")) {
-        toggle.textContent = "🌙";
-      } else {
-        toggle.textContent = "☀️";
-      }
-    });
-
-    window.addEventListener("scroll", () => {
-      const triggerPoint = mainSite.offsetTop - 100;
-
-      if (window.scrollY > triggerPoint) {
-        toggle.classList.add("show");
-      } else {
-        toggle.classList.remove("show");
-      }
-    });
-
-    const landing = document.querySelector(".landing");
-
-    if (landing) {
-      landing.addEventListener("pointermove", (event) => {
-        const rect = landing.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-        landing.style.setProperty("--mouse-x", `${x}%`);
-        landing.style.setProperty("--mouse-y", `${y}%`);
-      });
+  window.addEventListener("load", () => {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
     }
-  </script>
-</body>
-</html>
+  });
+
+  const toggle = document.getElementById("theme-toggle");
+  const mainSite = document.getElementById("main-site");
+  const landing = document.querySelector(".landing");
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+      toggle.textContent = "🌙";
+    } else {
+      toggle.textContent = "☀️";
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    const triggerPoint = mainSite.offsetTop - 100;
+
+    if (window.scrollY > triggerPoint) {
+      toggle.classList.add("show");
+    } else {
+      toggle.classList.remove("show");
+    }
+  });
+
+  if (landing) {
+    landing.addEventListener("pointermove", (event) => {
+      const rect = landing.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+      landing.style.setProperty("--mouse-x", `${x}%`);
+      landing.style.setProperty("--mouse-y", `${y}%`);
+    });
+  }
+</script>
