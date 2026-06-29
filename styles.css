@@ -1529,3 +1529,40 @@ body.light-mode .landing-overlay {
     bottom: 16vh !important;
   }
 }
+/* Smooth website load-in */
+body {
+  opacity: 0;
+  animation: pageFadeIn 900ms ease forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.landing-content {
+  animation-delay: 180ms !important;
+}
+
+.landing-visuals {
+  opacity: 0;
+  animation: visualsFadeIn 1.2s ease 350ms forwards;
+}
+
+@keyframes visualsFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
