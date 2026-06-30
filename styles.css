@@ -1632,3 +1632,93 @@ body {
     filter: blur(0);
   }
 }
+/* Cleaner premium hero buttons */
+.landing-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem !important;
+  margin-top: 2rem !important;
+}
+
+.landing-button {
+  position: relative;
+  isolation: isolate;
+  min-height: 46px !important;
+  padding: 0 1.15rem !important;
+  border-radius: 999px !important;
+  font-size: 0.92rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.015em;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.landing-button::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.04)
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.landing-button:hover::before {
+  opacity: 1;
+}
+
+.landing-button.primary {
+  background:
+    linear-gradient(135deg, #ffffff, #dbeafe) !important;
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  color: #07111f !important;
+  box-shadow:
+    0 14px 34px rgba(248, 250, 252, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.landing-button.primary:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow:
+    0 20px 52px rgba(125, 211, 252, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+.landing-button.secondary {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.13), rgba(255,255,255,0.045)) !important;
+  border: 1px solid rgba(226, 232, 240, 0.30) !important;
+  color: #f8fafc !important;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
+}
+
+.landing-button.secondary:hover {
+  transform: translateY(-3px) scale(1.015);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.075)) !important;
+  border-color: rgba(125, 211, 252, 0.48) !important;
+  box-shadow:
+    0 20px 52px rgba(56, 189, 248, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+}
+
+.landing-button:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.landing-button.primary::after {
+  content: "→";
+  margin-left: 0.45rem;
+  transition: transform 220ms ease;
+}
+
+.landing-button.primary:hover::after {
+  transform: translateX(3px);
+}
