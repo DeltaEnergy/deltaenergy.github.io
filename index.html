@@ -203,65 +203,78 @@
   </div>
 
   <script>
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
 
-    window.addEventListener("load", () => {
-      if (!window.location.hash) {
-        window.scrollTo(0, 0);
-      }
-    });
+  const toggle = document.getElementById("theme-toggle");
+  const mainSite = document.getElementById("main-site");
+  const landing = document.querySelector(".landing");
 
-    const toggle = document.getElementById("theme-toggle");
-    const mainSite = document.getElementById("main-site");
-    const landing = document.querySelector(".landing");
+  window.addEventListener("load", () => {
+    const savedTarget = sessionStorage.getItem("scrollTarget");
 
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
+    if (savedTarget) {
+      sessionStorage.removeItem("scrollTarget");
 
-      if (document.body.classList.contains("light-mode")) {
-        toggle.textContent = "🌙";
-      } else {
-        toggle.textContent = "☀️";
-      }
-    });
+      const target = document.getElementById(savedTarget);
 
-    window.addEventListener("scroll", () => {
-      const triggerPoint = mainSite.offsetTop - 100;
-
-      if (window.scrollY > triggerPoint) {
-        toggle.classList.add("show");
-      } else {
-        toggle.classList.remove("show");
-      }
-    });
-
-    if (landing) {
-      landing.addEventListener("pointermove", (event) => {
-        const rect = landing.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-        landing.style.setProperty("--mouse-x", `${x}%`);
-        landing.style.setProperty("--mouse-y", `${y}%`);
-      });
-    }
-
-    document.querySelectorAll("[data-scroll-clean]").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        const target = document.querySelector(link.getAttribute("href"));
-
-        if (target) {
+      if (target) {
+        setTimeout(() => {
           target.scrollIntoView({ behavior: "smooth" });
+          history.replaceState(null, "", "/");
+        }, 100);
+      }
 
-          const cleanPath = window.location.pathname.replace("index.html", "");
-          history.replaceState(null, "", cleanPath || "/");
-        }
-      });
+      return;
+    }
+
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  });
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+      toggle.textContent = "🌙";
+    } else {
+      toggle.textContent = "☀️";
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    const triggerPoint = mainSite.offsetTop - 100;
+
+    if (window.scrollY > triggerPoint) {
+      toggle.classList.add("show");
+    } else {
+      toggle.classList.remove("show");
+    }
+  });
+
+  if (landing) {
+    landing.addEventListener("pointermove", (event) => {
+      const rect = landing.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+      landing.style.setProperty("--mouse-x", `${x}%`);
+      landing.style.setProperty("--mouse-y", `${y}%`);
     });
-  </script>
-</body>
-</html>
+  }
+
+  document.querySelectorAll("[data-scroll-clean]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const target = document.querySelector(link.getAttribute("href"));
+
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+        history.replaceState(null, "", "/");
+      }
+    });
+  });
+</script>

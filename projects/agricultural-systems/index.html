@@ -10,12 +10,12 @@
 <body class="project-body">
 
   <header class="project-topbar">
-    <a href="../../#projects" class="project-back">← Back to portfolio</a>
+    <a href="../../" class="project-back" data-home-scroll="projects">← Back to portfolio</a>
 
     <nav>
       <a href="../../">Home</a>
-      <a href="../../#projects">Projects</a>
-      <a href="../../#contact">Contact</a>
+      <a href="../../" data-home-scroll="projects">Projects</a>
+      <a href="../../" data-home-scroll="contact">Contact</a>
     </nav>
   </header>
 
@@ -103,6 +103,14 @@
     </section>
 
   </main>
+
+  <script>
+    document.querySelectorAll("[data-home-scroll]").forEach((link) => {
+      link.addEventListener("click", () => {
+        sessionStorage.setItem("scrollTarget", link.dataset.homeScroll);
+      });
+    });
+  </script>
 
 </body>
 </html>
