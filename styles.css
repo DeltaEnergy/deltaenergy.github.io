@@ -2429,3 +2429,92 @@ body.project-body main.case-study {
 body.project-body .case-hero {
   margin-top: 0 !important;
 }
+/* Polish case study visual + findings section */
+body.project-body .case-visual {
+  padding: 1.15rem !important;
+  border-radius: 30px !important;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.10), transparent 22rem),
+    linear-gradient(145deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.92)) !important;
+  border: 1px solid rgba(125, 211, 252, 0.20) !important;
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+}
+
+/* Image wrapper effect */
+body.project-body .case-visual {
+  overflow: hidden !important;
+}
+
+/* Crop out white edge lines on the map */
+body.project-body .case-visual img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(148, 163, 184, 0.16) !important;
+  object-fit: cover !important;
+  transform: scale(1.018) !important;
+  transform-origin: center center !important;
+  background: #f8fafc !important;
+}
+
+/* Cleaner figure caption */
+body.project-body .case-visual p {
+  margin: 1.25rem 1.15rem 0.6rem !important;
+  max-width: 980px !important;
+  color: rgba(226, 232, 240, 0.76) !important;
+  font-size: 0.98rem !important;
+  line-height: 1.72 !important;
+}
+
+body.project-body .case-visual p strong {
+  color: #f8fafc !important;
+}
+
+/* Better findings/tools cards */
+body.project-body .case-grid {
+  gap: 1.35rem !important;
+  margin-top: 1.5rem !important;
+}
+
+body.project-body .case-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.8rem !important;
+  border-radius: 26px !important;
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 18rem),
+    linear-gradient(145deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.90)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.20) !important;
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.035) !important;
+}
+
+body.project-body .case-card h2 {
+  margin-bottom: 1rem !important;
+  font-size: 1.45rem !important;
+  letter-spacing: -0.045em !important;
+}
+
+body.project-body .case-card ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+body.project-body .case-card li {
+  margin-bottom: 0.65rem;
+  color: rgba(226, 232, 240, 0.78) !important;
+}
+
+/* Make tool pills breathe better */
+body.project-body .case-card .skills {
+  gap: 0.7rem !important;
+}
+
+body.project-body .case-card .skill {
+  padding: 0.55rem 0.8rem !important;
+  font-size: 0.82rem !important;
+}
