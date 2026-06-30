@@ -2201,3 +2201,40 @@ body.project-body .case-card li {
     font-size: clamp(3rem, 15vw, 5rem);
   }
 }
+/* Final fix: center modern project case study pages */
+body.project-body main.case-study {
+  width: min(1180px, calc(100% - 3rem)) !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 4rem 0 7rem !important;
+  display: block !important;
+}
+
+body.project-body .case-hero,
+body.project-body .case-visual,
+body.project-body .case-grid {
+  width: 100% !important;
+}
+
+body.project-body .case-hero {
+  margin-top: 1.5rem !important;
+}
+
+body.project-body .project-topbar {
+  width: min(1180px, calc(100% - 3rem)) !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+}
+
+body.project-body .case-visual img {
+  max-height: 760px;
+  object-fit: contain;
+  background: #f8fafc;
+}
+
+@media (max-width: 800px) {
+  body.project-body main.case-study,
+  body.project-body .project-topbar {
+    width: calc(100% - 2rem) !important;
+  }
+}
