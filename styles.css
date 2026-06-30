@@ -2238,3 +2238,66 @@ body.project-body .case-visual img {
     width: calc(100% - 2rem) !important;
   }
 }
+/* Final fix: clean project page top navigation */
+body.project-body .project-topbar {
+  height: 64px !important;
+  padding: 0 !important;
+  margin: 0 auto 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: rgba(15, 17, 23, 0.78) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+body.project-body .project-back {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 36px !important;
+  padding: 0 0.85rem !important;
+  border-radius: 999px !important;
+  color: #cbd5e1 !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(148, 163, 184, 0.16) !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+}
+
+body.project-body .project-back:hover {
+  color: #f8fafc !important;
+  border-color: rgba(125, 211, 252, 0.4) !important;
+  background: rgba(125, 211, 252, 0.08) !important;
+}
+
+body.project-body .project-topbar nav {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  margin: 0 !important;
+}
+
+body.project-body .project-topbar nav a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important;
+  padding: 0 0.85rem !important;
+  border-radius: 999px !important;
+  color: #cbd5e1 !important;
+  background: transparent !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+}
+
+body.project-body .project-topbar nav a:hover {
+  color: #f8fafc !important;
+  background: rgba(125, 211, 252, 0.08) !important;
+}
+
+body.project-body .case-study {
+  padding-top: 2rem !important;
+}
