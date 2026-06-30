@@ -1939,7 +1939,14 @@ body {
   gap: 0.65rem;
 }
 
-#main-site section > h2::after {
+/* Section heading accent line, excluding intro hero */
+#main-site section:not(#about) > h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+#main-site section:not(#about) > h2::after {
   content: "";
   width: 44px;
   height: 1px;
