@@ -2379,3 +2379,53 @@ body.project-body .project-topbar nav a::after,
 body.project-body .project-back::after {
   content: none !important;
 }
+/* Final project nav fix: stop ugly overlay/discolouring */
+body.project-body .project-topbar {
+  position: relative !important;
+  top: auto !important;
+  z-index: 10 !important;
+
+  width: min(1180px, calc(100% - 3rem)) !important;
+  height: 72px !important;
+  margin: 0 auto 1.5rem !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  background: transparent !important;
+  border-bottom: none !important;
+  backdrop-filter: none !important;
+}
+
+body.project-body .project-back,
+body.project-body .project-topbar nav a {
+  color: #cbd5e1 !important;
+  background: transparent !important;
+  border: none !important;
+  text-decoration: none !important;
+  font-size: 0.86rem !important;
+  font-weight: 800 !important;
+  padding: 0 !important;
+}
+
+body.project-body .project-back:hover,
+body.project-body .project-topbar nav a:hover {
+  color: #7dd3fc !important;
+}
+
+body.project-body .project-topbar nav {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
+  margin: 0 !important;
+}
+
+body.project-body main.case-study {
+  padding-top: 0 !important;
+}
+
+body.project-body .case-hero {
+  margin-top: 0 !important;
+}
