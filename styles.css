@@ -1923,3 +1923,37 @@ body {
     min-height: auto;
   }
 }
+/* Tighter final page spacing after removing GIS section */
+#projects {
+  margin-bottom: 5.5rem !important;
+}
+
+#contact {
+  padding-bottom: 3rem;
+}
+
+/* Slightly nicer section headings */
+#main-site section > h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+#main-site section > h2::after {
+  content: "";
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(125, 211, 252, 0.75), transparent);
+}
+
+/* Make project cards feel a little more clickable */
+.card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.card a:hover {
+  transform: translateX(3px);
+}
