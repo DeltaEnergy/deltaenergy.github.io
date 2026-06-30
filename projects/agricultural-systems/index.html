@@ -114,3 +114,15 @@
 
 </body>
 </html>
+<script>
+  document.querySelectorAll("[data-home-scroll]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const target = link.dataset.homeScroll;
+      sessionStorage.setItem("scrollTarget", target);
+
+      window.location.href = "/";
+    });
+  });
+</script>
