@@ -2301,3 +2301,81 @@ body.project-body .project-topbar nav a:hover {
 body.project-body .case-study {
   padding-top: 2rem !important;
 }
+/* Project page topbar - clean final version */
+body.project-body .project-topbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+
+  width: min(1180px, calc(100% - 3rem)) !important;
+  height: 72px !important;
+  margin: 0 auto 2rem !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  background: rgba(15, 17, 23, 0.82) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12) !important;
+  backdrop-filter: blur(18px);
+}
+
+body.project-body .project-back {
+  display: inline-flex !important;
+  align-items: center !important;
+
+  height: auto !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+
+  color: #94a3b8 !important;
+  font-size: 0.86rem !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  letter-spacing: -0.01em;
+}
+
+body.project-body .project-back:hover {
+  color: #7dd3fc !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+body.project-body .project-topbar nav {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  margin: 0 !important;
+}
+
+body.project-body .project-topbar nav a {
+  display: inline-flex !important;
+  align-items: center !important;
+
+  height: auto !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border-radius: 0 !important;
+
+  color: #cbd5e1 !important;
+  font-size: 0.86rem !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  letter-spacing: -0.01em;
+}
+
+body.project-body .project-topbar nav a:hover {
+  color: #7dd3fc !important;
+  background: transparent !important;
+}
+
+body.project-body .project-topbar nav a::after,
+body.project-body .project-back::after {
+  content: none !important;
+}
