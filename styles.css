@@ -2589,3 +2589,9 @@ body.light-mode #main-site .geocode-project-icon {
     grid-template-columns: 1fr !important;
   }
 }
+/* Geocode project logo */
+#projects img[src="images/geocode-logo.png"] {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
