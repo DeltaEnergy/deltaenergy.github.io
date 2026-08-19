@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<link rel="icon" type="image/png" href="geocode-logo.png">
 
 <meta charset="UTF-8">
 
@@ -20,7 +21,22 @@
 
 
 <style>
+  
+.brand-icon {
+  width: 42px;
+  height: 42px;
 
+  display: grid;
+  place-items: center;
+}
+
+.brand-icon img {
+  width: 38px;
+  height: 38px;
+
+  object-fit: contain;
+  display: block;
+}
 :root {
   --bg: #080a0d;
   --panel: #10141a;
@@ -930,9 +946,9 @@ footer {
 
   <div class="brand">
 
-    <div
-      class="brand-icon"
-      aria-hidden="true"
+    <div class="brand-icon">
+  <img src="geocode-logo.png" alt="Geocode">
+</div>
     >
 
       <svg
