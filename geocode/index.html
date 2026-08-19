@@ -1,70 +1,114 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
 <link rel="icon" type="image/png" href="geocode-logo.png">
 
 <meta charset="UTF-8">
 
 <meta
+
   name="viewport"
+
   content="width=device-width, initial-scale=1.0"
+
 >
 
-<title>GEOCODE</title>
+<title>Geocode</title>
 
 
 <link
+
   rel="stylesheet"
+
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+
 />
 
 
+
+
+
 <style>
-  
+
 .brand-icon {
+
   width: 42px;
+
   height: 42px;
 
   display: grid;
+
   place-items: center;
+
+  flex: 0 0 42px;
+
 }
 
 .brand-icon img {
-  width: 38px;
-  height: 38px;
+
+  width: 40px;
+
+  height: 40px;
+
+  display: block;
 
   object-fit: contain;
-  display: block;
+
 }
+
+
+
 :root {
+
   --bg: #080a0d;
+
   --panel: #10141a;
+
   --panel2: #161b22;
+
   --panel3: #1b222b;
 
   --border: #252d37;
+
   --border2: #303a46;
 
   --text: #f5f7fa;
+
   --secondary: #c3cad3;
+
   --muted: #7e8996;
 
   --accent: #4cc9ff;
+
   --accent2: #83dbff;
 
   --success: #3ddc97;
+
   --warning: #f7c84b;
+
   --danger: #ff6178;
+
 }
+
+
+
 
 
 * {
+
   box-sizing: border-box;
+
 }
 
 
+
+
+
 body {
+
   margin: 0;
 
   min-height: 100vh;
@@ -72,142 +116,161 @@ body {
   padding: 40px 24px;
 
   font-family:
+
     Inter,
+
     system-ui,
+
     -apple-system,
+
     BlinkMacSystemFont,
+
     "Segoe UI",
+
     sans-serif;
 
   background:
+
     radial-gradient(
+
       circle at 10% 0%,
+
       rgba(76,201,255,.09),
+
       transparent 30%
+
     ),
+
     var(--bg);
 
   color: var(--text);
+
 }
+
+
+
 
 
 .shell {
+
   max-width: 1500px;
 
   margin: auto;
+
 }
 
 
+
+
+
 .app {
+
   background:
+
     rgba(16,20,26,.94);
 
   border:
+
     1px solid var(--border);
 
   border-radius: 18px;
 
   overflow: hidden;
+
 }
 
 
+
+
+
 header {
+
   padding: 25px 30px;
 
   display: flex;
 
   justify-content:
+
     space-between;
 
   align-items: center;
 
   border-bottom:
+
     1px solid var(--border);
+
 }
 
 
+
+
+
 .brand {
+
   display: flex;
 
   align-items: center;
 
   gap: 14px;
+
 }
 
 
-.brand-icon {
-  width: 42px;
-  height: 42px;
 
-  display: grid;
-
-  place-items: center;
-
-  border-radius: 11px;
-
-  color: var(--accent);
-
-  background:
-    rgba(76,201,255,.07);
-
-  border:
-    1px solid
-    rgba(76,201,255,.25);
-}
-
-
-.brand-icon svg {
-  display: block;
-}
 
 
 h1 {
+
   margin: 0;
 
   font-size: 20px;
 
   letter-spacing: .08em;
+
 }
 
 
+
+
+
 .subtitle {
+
   color: var(--muted);
 
   font-size: 13px;
 
   margin-top: 4px;
+
 }
 
 
-.version {
-  color: var(--muted);
 
-  border:
-    1px solid var(--border);
-
-  border-radius: 999px;
-
-  padding: 6px 9px;
-
-  font-size: 11px;
-}
 
 
 main {
+
   padding: 30px;
+
 }
 
 
+
+
+
 /* =========================================
+
    TABS
+
 ========================================= */
 
 .tabs {
+
   display: inline-flex;
 
   padding: 4px;
 
   border:
+
     1px solid var(--border);
 
   border-radius: 12px;
@@ -217,10 +280,15 @@ main {
   gap: 4px;
 
   margin-bottom: 28px;
+
 }
 
 
+
+
+
 button {
+
   min-height: 40px;
 
   padding: 9px 13px;
@@ -228,6 +296,7 @@ button {
   border-radius: 9px;
 
   border:
+
     1px solid var(--border);
 
   background: var(--panel2);
@@ -239,93 +308,155 @@ button {
   font-weight: 650;
 
   transition:
+
     background .15s,
+
     border-color .15s,
+
     color .15s;
+
 }
+
+
+
 
 
 button:hover {
+
   border-color:
+
     var(--border2);
 
   background:
+
     var(--panel3);
 
   color: white;
+
 }
 
 
+
+
+
 .primary {
+
   background: var(--accent);
 
   color: #031017;
 
   border-color: var(--accent);
+
 }
+
+
+
 
 
 .primary:hover {
+
   background: var(--accent2);
 
   color: #031017;
+
 }
+
+
+
 
 
 .clear-button {
+
   color: var(--danger);
 
   background:
+
     rgba(255,97,120,.05);
 
   border-color:
+
     rgba(255,97,120,.24);
+
 }
+
+
+
 
 
 .clear-button:hover {
+
   color: #ff91a1;
 
   background:
+
     rgba(255,97,120,.09);
 
   border-color:
+
     rgba(255,97,120,.45);
+
 }
 
 
+
+
+
 .tab {
+
   background: transparent;
 
   border: none;
 
   color: var(--muted);
+
 }
+
+
+
 
 
 .tab.active {
+
   background: var(--panel2);
 
   color: white;
+
 }
+
+
+
 
 
 .tab-content {
+
   display: none;
+
 }
+
+
+
 
 
 .tab-content.active {
+
   display: block;
+
 }
 
 
+
+
+
 /* =========================================
+
    PANELS
+
 ========================================= */
 
 .panel {
+
   border:
+
     1px solid var(--border);
 
   border-radius: 12px;
@@ -335,10 +466,15 @@ button:hover {
   padding: 20px;
 
   margin-bottom: 18px;
+
 }
 
 
+
+
+
 .panel-title {
+
   margin-bottom: 14px;
 
   text-transform: uppercase;
@@ -350,28 +486,45 @@ button:hover {
   color: var(--secondary);
 
   font-weight: 750;
+
 }
+
+
+
 
 
 /* =========================================
+
    FORM
+
 ========================================= */
 
 .filters {
+
   display: grid;
 
   grid-template-columns:
+
     minmax(180px,1.1fr)
+
     repeat(
+
       3,
+
       minmax(160px,1fr)
+
     );
 
   gap: 12px;
+
 }
 
 
+
+
+
 .field label {
+
   display: block;
 
   color: var(--muted);
@@ -379,15 +532,23 @@ button:hover {
   font-size: 12px;
 
   margin-bottom: 7px;
+
 }
 
 
+
+
+
 input,
+
 select,
+
 textarea {
+
   width: 100%;
 
   border:
+
     1px solid var(--border);
 
   background: #0b0f14;
@@ -395,18 +556,29 @@ textarea {
   color: var(--text);
 
   border-radius: 9px;
+
 }
+
+
+
 
 
 input,
+
 select {
+
   min-height: 42px;
 
   padding: 9px 11px;
+
 }
 
 
+
+
+
 textarea {
+
   min-height: 210px;
 
   padding: 14px;
@@ -414,27 +586,43 @@ textarea {
   resize: vertical;
 
   font-family:
+
     Consolas,
+
     monospace;
 
   line-height: 1.55;
+
 }
 
 
+
+
+
 input:focus,
+
 select:focus,
+
 textarea:focus {
+
   outline: none;
 
   border-color: var(--accent);
 
   box-shadow:
+
     0 0 0 3px
+
     rgba(76,201,255,.1);
+
 }
 
 
+
+
+
 .settings {
+
   display: flex;
 
   flex-wrap: wrap;
@@ -444,19 +632,29 @@ textarea:focus {
   gap: 14px;
 
   margin-top: 16px;
+
 }
 
 
+
+
+
 .settings-label {
+
   color: var(--secondary);
 
   font-size: 13px;
 
   font-weight: 600;
+
 }
 
 
+
+
+
 .threshold-select {
+
   width: 88px !important;
 
   min-width: 88px !important;
@@ -464,11 +662,17 @@ textarea:focus {
   max-width: 88px !important;
 
   flex:
+
     0 0 88px;
+
 }
 
 
+
+
+
 .outlier-toggle {
+
   display: inline-flex;
 
   align-items: center;
@@ -478,10 +682,15 @@ textarea:focus {
   color: var(--secondary);
 
   font-size: 13px;
+
 }
 
 
+
+
+
 .outlier-toggle input {
+
   width: 16px;
 
   height: 16px;
@@ -489,14 +698,21 @@ textarea:focus {
   margin: 0;
 
   accent-color: var(--accent);
+
 }
 
 
+
+
+
 /* =========================================
+
    ACTIONS
+
 ========================================= */
 
 .actions {
+
   display: flex;
 
   flex-wrap: wrap;
@@ -506,31 +722,49 @@ textarea:focus {
   gap: 8px;
 
   margin-top: 16px;
+
 }
+
+
+
 
 
 .actions select {
+
   width: auto;
 
   min-width: 190px;
+
 }
+
+
+
 
 
 /* =========================================
+
    PROGRESS
+
 ========================================= */
 
 .progress-wrap {
+
   display: none;
 
   margin-top: 16px;
+
 }
 
 
+
+
+
 .progress-header {
+
   display: flex;
 
   justify-content:
+
     space-between;
 
   align-items: center;
@@ -540,10 +774,15 @@ textarea:focus {
   color: var(--muted);
 
   font-size: 11px;
+
 }
 
 
+
+
+
 .progress-track {
+
   width: 100%;
 
   height: 7px;
@@ -555,11 +794,17 @@ textarea:focus {
   background: #080c10;
 
   border:
+
     1px solid var(--border);
+
 }
 
 
+
+
+
 .progress-bar {
+
   height: 100%;
 
   width: 0%;
@@ -567,35 +812,55 @@ textarea:focus {
   border-radius: inherit;
 
   background:
+
     linear-gradient(
+
       90deg,
+
       var(--accent),
+
       var(--accent2)
+
     );
 
   transition:
+
     width .16s ease;
+
 }
 
 
+
+
+
 /* =========================================
+
    SUMMARY
+
 ========================================= */
 
 .summary {
+
   display: grid;
 
   grid-template-columns:
+
     repeat(4,1fr);
 
   gap: 10px;
 
   margin-top: 20px;
+
 }
 
 
+
+
+
 .stat {
+
   border:
+
     1px solid var(--border);
 
   border-radius: 10px;
@@ -603,62 +868,103 @@ textarea:focus {
   background: #0c1015;
 
   padding: 14px;
+
 }
+
+
+
 
 
 .stat strong {
+
   display: block;
 
   font-size: 20px;
+
 }
 
 
+
+
+
 .stat span {
+
   color: var(--muted);
 
   font-size: 10px;
 
   text-transform:
+
     uppercase;
 
   letter-spacing: .07em;
+
 }
+
+
+
 
 
 .good strong {
+
   color: var(--success);
+
 }
+
+
+
 
 
 .warn strong {
+
   color: var(--warning);
+
 }
+
+
+
 
 
 .bad strong {
+
   color: var(--danger);
+
 }
 
 
+
+
+
 /* =========================================
+
    OUTPUT + MAP
+
 ========================================= */
 
 .workspace {
+
   display: grid;
 
   grid-template-columns:
+
     minmax(0,.9fr)
+
     minmax(0,1.1fr);
 
   gap: 16px;
 
   margin-top: 20px;
+
 }
 
 
+
+
+
 .workspace-card {
+
   border:
+
     1px solid var(--border);
 
   border-radius: 12px;
@@ -666,41 +972,63 @@ textarea:focus {
   background: #0c1015;
 
   overflow: hidden;
+
 }
 
 
+
+
+
 .card-header {
+
   padding: 14px 16px;
 
   display: flex;
 
   justify-content:
+
     space-between;
 
   align-items: center;
 
   border-bottom:
+
     1px solid var(--border);
+
 }
+
+
+
 
 
 .card-title {
+
   font-size: 13px;
 
   font-weight: 750;
+
 }
 
 
+
+
+
 .card-subtitle {
+
   color: var(--muted);
 
   font-size: 11px;
 
   margin-top: 3px;
+
 }
 
 
+
+
+
 .output-box {
+
   border: none;
 
   border-radius: 0;
@@ -708,47 +1036,77 @@ textarea:focus {
   min-height: 390px;
 
   background: #080c10;
+
 }
 
 
+
+
+
 #map,
+
 #reverseMap {
+
   width: 100%;
 
   height: 390px;
 
   background: #080c10;
+
 }
+
+
+
 
 
 .leaflet-container {
+
   background: #080c10;
 
   font-family: inherit;
+
 }
+
+
+
 
 
 .leaflet-control-zoom a {
+
   background:
+
     #111820 !important;
 
   color:
+
     #d7e0e8 !important;
 
   border-color:
+
     #27323d !important;
+
 }
+
+
+
 
 
 .leaflet-popup-content-wrapper,
+
 .leaflet-popup-tip {
+
   background: #111820;
 
   color: white;
+
 }
 
 
+
+
+
 .marker-dot {
+
   width: 13px;
 
   height: 13px;
@@ -758,76 +1116,123 @@ textarea:focus {
   background: var(--accent);
 
   border:
+
     2px solid #071015;
 
   box-shadow:
+
     0 0 0 2px
+
     rgba(76,201,255,.35);
+
 }
+
+
+
 
 
 /* =========================================
+
    RESULTS
+
 ========================================= */
 
 .results {
+
   margin-top: 28px;
+
 }
+
+
+
 
 
 .table-wrap {
+
   overflow-x: auto;
 
   border:
+
     1px solid var(--border);
 
   border-radius: 12px;
+
 }
 
 
+
+
+
 table {
+
   width: 100%;
 
   min-width: 1200px;
 
   border-collapse:
+
     collapse;
+
 }
 
 
+
+
+
 th,
+
 td {
+
   padding: 12px;
 
   border-bottom:
+
     1px solid var(--border);
 
   text-align: left;
 
   font-size: 12px;
+
 }
 
 
+
+
+
 th {
+
   background: #11161d;
 
   color: var(--muted);
 
   text-transform:
+
     uppercase;
 
   font-size: 10px;
+
 }
+
+
+
 
 
 .coord {
+
   font-family:
+
     Consolas,
+
     monospace;
+
 }
 
 
+
+
+
 .status {
+
   display: inline-block;
 
   padding: 4px 8px;
@@ -839,93 +1244,157 @@ th {
   font-weight: 750;
 
   white-space: nowrap;
+
 }
+
+
+
 
 
 .status-ok {
+
   color: var(--success);
 
   background:
+
     rgba(61,220,151,.11);
+
 }
+
+
+
 
 
 .status-warning {
+
   color: var(--warning);
 
   background:
+
     rgba(247,200,75,.11);
+
 }
+
+
+
 
 
 .status-danger {
+
   color: var(--danger);
 
   background:
+
     rgba(255,97,120,.11);
+
 }
 
 
+
+
+
 /* =========================================
+
    FOOTER
+
 ========================================= */
 
 footer {
+
   display: flex;
 
   justify-content:
+
     space-between;
 
   padding:
+
     18px 4px 0;
 
   color: #596472;
 
   font-size: 11px;
+
 }
 
 
+
+
+
 /* =========================================
+
    RESPONSIVE
+
 ========================================= */
 
 @media(max-width:900px) {
 
   .filters {
+
     grid-template-columns:
+
       1fr 1fr;
+
   }
+
+
+
 
 
   .workspace {
+
     grid-template-columns:
+
       1fr;
+
   }
 
 
+
+
+
   .summary {
+
     grid-template-columns:
+
       1fr 1fr;
+
   }
 
 }
 
 
+
+
+
 @media(max-width:600px) {
 
   body {
+
     padding: 14px;
+
   }
+
+
+
 
 
   main {
+
     padding: 20px;
+
   }
 
 
+
+
+
   .filters {
+
     grid-template-columns:
+
       1fr;
+
   }
 
 }
@@ -935,6 +1404,9 @@ footer {
 </head>
 
 
+
+
+
 <body>
 
 <div class="shell">
@@ -942,237 +1414,275 @@ footer {
 <div class="app">
 
 
+
+
+
 <header>
 
   <div class="brand">
 
     <div class="brand-icon">
-  <img src="geocode-logo.png" alt="Geocode">
-</div>
-    >
 
-      <svg
-        viewBox="0 0 32 32"
-        width="25"
-        height="25"
-        fill="none"
-      >
-
-        <path
-          d="
-            M16 28
-            C16 28
-            24 20.8
-            24 13.5
-            C24 8.8
-            20.4 5
-            16 5
-            C11.6 5
-            8 8.8
-            8 13.5
-            C8 20.8
-            16 28
-            16 28
-            Z
-          "
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linejoin="round"
-        />
-
-        <circle
-          cx="16"
-          cy="13.5"
-          r="3.1"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-
-        <path
-          d="M16 8.2V10"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-        />
-
-        <path
-          d="M16 17V18.8"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-        />
-
-        <path
-          d="M10.7 13.5H12.5"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-        />
-
-        <path
-          d="M19.5 13.5H21.3"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-        />
-
-      </svg>
+      <img src="geocode-logo.png" alt="Geocode">
 
     </div>
-
 
     <div>
 
-      <h1>
-        GEOCODE
-      </h1>
+      <h1>GEOCODE</h1>
 
-      <div class="subtitle">
-        Fast spatial conversion & QA
-      </div>
+      <div class="subtitle">Fast spatial conversion & QA</div>
 
     </div>
 
-  </div>
-
-
-  <div class="version">
-    v1.3
   </div>
 
 </header>
 
 
+
+
+
 <main>
+
+
+
 
 
 <div class="tabs">
 
   <button
+
     id="forwardTabBtn"
+
     class="tab active"
+
   >
+
     Address → Coordinates
+
   </button>
 
 
+
+
+
   <button
+
     id="reverseTabBtn"
+
     class="tab"
+
   >
+
     Coordinates → Address
+
   </button>
 
 </div>
 
 
+
+
+
 <!-- ======================================================
+
      FORWARD TAB
+
 ====================================================== -->
 
 <section
+
   id="forwardTab"
+
   class="tab-content active"
+
 >
+
+
+
 
 
 <div class="panel">
 
   <div class="panel-title">
+
     Search Context
+
   </div>
+
+
+
 
 
   <div class="filters">
 
 
+
+
+
     <div class="field">
 
       <label for="country">
+
         Country
+
       </label>
 
       <select id="country">
 
         <option value="">
+
           🌐 Any Country
+
         </option>
 
         <option value="Afghanistan">🇦🇫 Afghanistan</option>
+
         <option value="Albania">🇦🇱 Albania</option>
+
         <option value="Algeria">🇩🇿 Algeria</option>
+
         <option value="Argentina">🇦🇷 Argentina</option>
+
         <option value="Australia">🇦🇺 Australia</option>
+
         <option value="Austria">🇦🇹 Austria</option>
+
         <option value="Bangladesh">🇧🇩 Bangladesh</option>
+
         <option value="Belgium">🇧🇪 Belgium</option>
+
         <option value="Bolivia">🇧🇴 Bolivia</option>
+
         <option value="Brazil">🇧🇷 Brazil</option>
+
         <option value="Bulgaria">🇧🇬 Bulgaria</option>
 
         <option
+
           value="Canada"
+
           selected
+
         >
+
           🇨🇦 Canada
+
         </option>
 
         <option value="Chile">🇨🇱 Chile</option>
+
         <option value="China">🇨🇳 China</option>
+
         <option value="Colombia">🇨🇴 Colombia</option>
+
         <option value="Costa Rica">🇨🇷 Costa Rica</option>
+
         <option value="Croatia">🇭🇷 Croatia</option>
+
         <option value="Czechia">🇨🇿 Czechia</option>
+
         <option value="Denmark">🇩🇰 Denmark</option>
+
         <option value="Dominican Republic">🇩🇴 Dominican Republic</option>
+
         <option value="Ecuador">🇪🇨 Ecuador</option>
+
         <option value="Egypt">🇪🇬 Egypt</option>
+
         <option value="Estonia">🇪🇪 Estonia</option>
+
         <option value="Finland">🇫🇮 Finland</option>
+
         <option value="France">🇫🇷 France</option>
+
         <option value="Germany">🇩🇪 Germany</option>
+
         <option value="Ghana">🇬🇭 Ghana</option>
+
         <option value="Greece">🇬🇷 Greece</option>
+
         <option value="Hungary">🇭🇺 Hungary</option>
+
         <option value="Iceland">🇮🇸 Iceland</option>
+
         <option value="India">🇮🇳 India</option>
+
         <option value="Indonesia">🇮🇩 Indonesia</option>
+
         <option value="Ireland">🇮🇪 Ireland</option>
+
         <option value="Israel">🇮🇱 Israel</option>
+
         <option value="Italy">🇮🇹 Italy</option>
+
         <option value="Japan">🇯🇵 Japan</option>
+
         <option value="Kenya">🇰🇪 Kenya</option>
+
         <option value="Malaysia">🇲🇾 Malaysia</option>
+
         <option value="Mexico">🇲🇽 Mexico</option>
+
         <option value="Morocco">🇲🇦 Morocco</option>
+
         <option value="Netherlands">🇳🇱 Netherlands</option>
+
         <option value="New Zealand">🇳🇿 New Zealand</option>
+
         <option value="Nigeria">🇳🇬 Nigeria</option>
+
         <option value="Norway">🇳🇴 Norway</option>
+
         <option value="Pakistan">🇵🇰 Pakistan</option>
+
         <option value="Peru">🇵🇪 Peru</option>
+
         <option value="Philippines">🇵🇭 Philippines</option>
+
         <option value="Poland">🇵🇱 Poland</option>
+
         <option value="Portugal">🇵🇹 Portugal</option>
+
         <option value="Romania">🇷🇴 Romania</option>
+
         <option value="Saudi Arabia">🇸🇦 Saudi Arabia</option>
+
         <option value="Serbia">🇷🇸 Serbia</option>
+
         <option value="Singapore">🇸🇬 Singapore</option>
+
         <option value="Slovakia">🇸🇰 Slovakia</option>
+
         <option value="Slovenia">🇸🇮 Slovenia</option>
+
         <option value="South Africa">🇿🇦 South Africa</option>
+
         <option value="South Korea">🇰🇷 South Korea</option>
+
         <option value="Spain">🇪🇸 Spain</option>
+
         <option value="Sweden">🇸🇪 Sweden</option>
+
         <option value="Switzerland">🇨🇭 Switzerland</option>
+
         <option value="Taiwan">🇹🇼 Taiwan</option>
+
         <option value="Thailand">🇹🇭 Thailand</option>
+
         <option value="Turkey">🇹🇷 Turkey</option>
+
         <option value="Ukraine">🇺🇦 Ukraine</option>
+
         <option value="United Arab Emirates">🇦🇪 United Arab Emirates</option>
+
         <option value="United Kingdom">🇬🇧 United Kingdom</option>
+
         <option value="United States">🇺🇸 United States</option>
+
         <option value="Uruguay">🇺🇾 Uruguay</option>
+
         <option value="Vietnam">🇻🇳 Vietnam</option>
 
       </select>
@@ -1180,44 +1690,69 @@ footer {
     </div>
 
 
+
+
+
     <div class="field">
 
       <label for="province">
+
         Province / State
+
       </label>
 
       <input
+
         id="province"
+
         value="Ontario"
+
         placeholder="Ontario"
+
       >
 
     </div>
+
+
+
 
 
     <div class="field">
 
       <label for="region">
+
         Region / County
+
       </label>
 
       <input
+
         id="region"
+
         placeholder="Oxford County"
+
       >
 
     </div>
 
 
+
+
+
     <div class="field">
 
       <label for="municipality">
+
         Municipality
+
       </label>
 
       <input
+
         id="municipality"
+
         placeholder="Woodstock"
+
       >
 
     </div>
@@ -1225,50 +1760,81 @@ footer {
   </div>
 
 
+
+
+
   <div class="settings">
 
     <span class="settings-label">
+
       Outlier threshold
+
     </span>
 
 
+
+
+
     <select
+
       id="outlierThreshold"
+
       class="threshold-select"
+
     >
 
       <option value="5">
+
         5 km
+
       </option>
 
       <option value="10">
+
         10 km
+
       </option>
 
       <option
+
         value="25"
+
         selected
+
       >
+
         25 km
+
       </option>
 
       <option value="50">
+
         50 km
+
       </option>
 
       <option value="100">
+
         100 km
+
       </option>
 
     </select>
 
 
+
+
+
     <label class="outlier-toggle">
 
       <input
+
         type="checkbox"
+
         id="enableOutliers"
+
         checked
+
       >
 
       Geographic outlier detection
@@ -1280,100 +1846,169 @@ footer {
 </div>
 
 
+
+
+
 <div class="panel">
 
   <div class="panel-title">
+
     Address Input
+
   </div>
 
 
+
+
+
   <textarea
+
     id="addresses"
+
     placeholder="Paste one address per line..."
+
   ></textarea>
+
+
+
 
 
   <div class="actions">
 
     <button
+
       class="primary"
+
       id="geocodeBtn"
+
     >
+
       Geocode
+
     </button>
+
+
+
 
 
     <select id="outputFormat">
 
       <option
+
         value="xy"
+
         selected
+
       >
+
         X,Y Coordinates
+
       </option>
 
       <option value="yx">
+
         Y,X Coordinates
+
       </option>
 
       <option value="x">
+
         Longitude / X only
+
       </option>
 
       <option value="y">
+
         Latitude / Y only
+
       </option>
 
       <option value="formatted_address">
+
         Full Addresses
+
       </option>
 
     </select>
 
 
+
+
+
     <button id="copyOutputBtn">
+
       Copy Output
+
     </button>
+
+
+
 
 
     <button id="exportForwardBtn">
+
       Export CSV
+
     </button>
 
 
+
+
+
     <button
+
       id="clearForwardBtn"
+
       class="clear-button"
+
     >
+
       Clear
+
     </button>
 
   </div>
 
 
+
+
+
   <div
+
     id="forwardProgressWrap"
+
     class="progress-wrap"
+
   >
 
     <div class="progress-header">
 
       <span id="forwardProgressLabel">
+
         Geocoding...
+
       </span>
 
       <span id="forwardProgressCount">
+
         0 / 0
+
       </span>
 
     </div>
 
 
+
+
+
     <div class="progress-track">
 
       <div
+
         id="forwardProgressBar"
+
         class="progress-bar"
+
       ></div>
 
     </div>
@@ -1383,59 +2018,91 @@ footer {
 </div>
 
 
+
+
+
 <div
+
   id="summary"
+
   class="summary"
+
   style="display:none"
+
 >
 
   <div class="stat good">
 
     <strong id="matchedCount">
+
       0
+
     </strong>
 
     <span>
+
       Matched
+
     </span>
 
   </div>
+
+
+
 
 
   <div class="stat warn">
 
     <strong id="warningCount">
+
       0
+
     </strong>
 
     <span>
+
       Warnings
+
     </span>
 
   </div>
+
+
+
 
 
   <div class="stat bad">
 
     <strong id="outlierCount">
+
       0
+
     </strong>
 
     <span>
+
       Outliers
+
     </span>
 
   </div>
 
 
+
+
+
   <div class="stat">
 
     <strong id="failedCount">
+
       0
+
     </strong>
 
     <span>
+
       Failed
+
     </span>
 
   </div>
@@ -1443,7 +2110,13 @@ footer {
 </div>
 
 
+
+
+
 <div class="workspace">
+
+
+
 
 
   <div class="workspace-card">
@@ -1453,36 +2126,61 @@ footer {
       <div>
 
         <div
+
           id="outputTitle"
+
           class="card-title"
+
         >
+
           X,Y Coordinates
+
         </div>
 
         <div
+
           id="outputSubtitle"
+
           class="card-subtitle"
+
         >
+
           Longitude, Latitude
+
         </div>
 
       </div>
 
 
+
+
+
       <button id="copyOutputBtn2">
+
         Copy
+
       </button>
 
     </div>
 
 
+
+
+
     <textarea
+
       id="outputBox"
+
       class="output-box"
+
       readonly
+
     ></textarea>
 
   </div>
+
+
+
 
 
   <div class="workspace-card">
@@ -1492,16 +2190,23 @@ footer {
       <div>
 
         <div class="card-title">
+
           Map
+
         </div>
 
         <div class="card-subtitle">
+
           Successful geocoding results
+
         </div>
 
       </div>
 
     </div>
+
+
+
 
 
     <div id="map"></div>
@@ -1511,11 +2216,19 @@ footer {
 </div>
 
 
+
+
+
 <div class="results">
 
   <h3>
+
     Results
+
   </h3>
+
+
+
 
 
   <div class="table-wrap">
@@ -1529,7 +2242,9 @@ footer {
           <th>Input</th>
 
           <th>
+
             Matched Address
+
           </th>
 
           <th>X</th>
@@ -1553,6 +2268,9 @@ footer {
       </thead>
 
 
+
+
+
       <tbody id="forwardResults"></tbody>
 
     </table>
@@ -1564,101 +2282,175 @@ footer {
 </section>
 
 
+
+
+
 <!-- ======================================================
+
      REVERSE TAB
+
 ====================================================== -->
 
 <section
+
   id="reverseTab"
+
   class="tab-content"
+
 >
+
+
+
 
 
 <div class="panel">
 
   <div class="panel-title">
+
     Coordinate Input
+
   </div>
 
 
+
+
+
   <select
+
     id="coordinateOrder"
+
     style="
+
       width:auto;
+
       margin-bottom:14px;
+
     "
+
   >
 
     <option value="xy">
+
       X,Y — Longitude, Latitude
+
     </option>
 
     <option value="yx">
+
       Y,X — Latitude, Longitude
+
     </option>
 
   </select>
 
 
+
+
+
   <textarea
+
     id="coordinates"
+
     placeholder="-80.7561,43.1298"
+
   ></textarea>
+
+
+
 
 
   <div class="actions">
 
     <button
+
       class="primary"
+
       id="reverseBtn"
+
     >
+
       Reverse Geocode
+
     </button>
+
+
+
 
 
     <button id="copyReverseBtn">
+
       Copy Addresses
+
     </button>
+
+
+
 
 
     <button id="exportReverseBtn">
+
       Export CSV
+
     </button>
 
 
+
+
+
     <button
+
       id="clearReverseBtn"
+
       class="clear-button"
+
     >
+
       Clear
+
     </button>
 
   </div>
 
 
+
+
+
   <div
+
     id="reverseProgressWrap"
+
     class="progress-wrap"
+
   >
 
     <div class="progress-header">
 
       <span id="reverseProgressLabel">
+
         Reverse geocoding...
+
       </span>
 
       <span id="reverseProgressCount">
+
         0 / 0
+
       </span>
 
     </div>
 
 
+
+
+
     <div class="progress-track">
 
       <div
+
         id="reverseProgressBar"
+
         class="progress-bar"
+
       ></div>
 
     </div>
@@ -1666,6 +2458,9 @@ footer {
   </div>
 
 </div>
+
+
+
 
 
 <div class="workspace">
@@ -1677,11 +2472,15 @@ footer {
       <div>
 
         <div class="card-title">
+
           Full Addresses
+
         </div>
 
         <div class="card-subtitle">
+
           Reverse-geocoded output
+
         </div>
 
       </div>
@@ -1689,13 +2488,23 @@ footer {
     </div>
 
 
+
+
+
     <textarea
+
       id="reverseOutput"
+
       class="output-box"
+
       readonly
+
     ></textarea>
 
   </div>
+
+
+
 
 
   <div class="workspace-card">
@@ -1705,12 +2514,17 @@ footer {
       <div>
 
         <div class="card-title">
+
           Map
+
         </div>
 
       </div>
 
     </div>
+
+
+
 
 
     <div id="reverseMap"></div>
@@ -1722,19 +2536,29 @@ footer {
 </section>
 
 
+
+
+
 </main>
 
 </div>
 
 
+
+
+
 <footer>
 
   <span>
+
     Built by Sam Wells
+
   </span>
 
   <span>
+
     Powered by Geoapify
+
   </span>
 
 </footer>
@@ -1742,164 +2566,269 @@ footer {
 </div>
 
 
+
+
+
 <script
+
   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+
 ></script>
+
+
+
 
 
 <script>
 
 /* ==========================================================
+
    CONFIG
+
 ========================================================== */
 
 const API =
+
   "https://geocoder-backend.onrender.com";
 
 
+
+
+
 /* ==========================================================
+
    ELEMENTS
+
 ========================================================== */
 
 const country =
+
   document.getElementById("country");
 
 const province =
+
   document.getElementById("province");
 
 const region =
+
   document.getElementById("region");
 
 const municipality =
+
   document.getElementById(
+
     "municipality"
+
   );
 
 const outlierThreshold =
+
   document.getElementById(
+
     "outlierThreshold"
+
   );
 
 const enableOutliers =
+
   document.getElementById(
+
     "enableOutliers"
+
   );
 
 const addresses =
+
   document.getElementById(
+
     "addresses"
+
   );
 
 const coordinates =
+
   document.getElementById(
+
     "coordinates"
+
   );
 
 const coordinateOrder =
+
   document.getElementById(
+
     "coordinateOrder"
+
   );
 
 const outputFormat =
+
   document.getElementById(
+
     "outputFormat"
+
   );
 
 const outputBox =
+
   document.getElementById(
+
     "outputBox"
+
   );
 
 const outputTitle =
+
   document.getElementById(
+
     "outputTitle"
+
   );
 
 const outputSubtitle =
+
   document.getElementById(
+
     "outputSubtitle"
+
   );
 
 const reverseOutput =
+
   document.getElementById(
+
     "reverseOutput"
+
   );
 
 const forwardResultsTable =
+
   document.getElementById(
+
     "forwardResults"
+
   );
 
 const summary =
+
   document.getElementById(
+
     "summary"
+
   );
 
 const matchedCount =
+
   document.getElementById(
+
     "matchedCount"
+
   );
 
 const warningCount =
+
   document.getElementById(
+
     "warningCount"
+
   );
 
 const outlierCount =
+
   document.getElementById(
+
     "outlierCount"
+
   );
 
 const failedCount =
+
   document.getElementById(
+
     "failedCount"
+
   );
+
+
+
 
 
 const forwardProgressWrap =
+
   document.getElementById(
+
     "forwardProgressWrap"
+
   );
 
 const forwardProgressBar =
+
   document.getElementById(
+
     "forwardProgressBar"
+
   );
 
 const forwardProgressLabel =
+
   document.getElementById(
+
     "forwardProgressLabel"
+
   );
 
 const forwardProgressCount =
+
   document.getElementById(
+
     "forwardProgressCount"
+
   );
+
+
+
 
 
 const reverseProgressWrap =
+
   document.getElementById(
+
     "reverseProgressWrap"
+
   );
 
 const reverseProgressBar =
+
   document.getElementById(
+
     "reverseProgressBar"
+
   );
 
 const reverseProgressLabel =
+
   document.getElementById(
+
     "reverseProgressLabel"
+
   );
 
 const reverseProgressCount =
+
   document.getElementById(
+
     "reverseProgressCount"
+
   );
 
 
+
+
+
 /* ==========================================================
+
    STATE
+
 ========================================================== */
 
 let forwardResults = [];
@@ -1915,66 +2844,119 @@ let markersLayer;
 let reverseMarkersLayer;
 
 
+
+
+
 /* ==========================================================
+
    MAP INITIALIZATION
+
 ========================================================== */
 
 function initializeMaps() {
 
   map =
+
     L.map("map")
+
     .setView(
+
       [43.13, -80.75],
+
       11
+
     );
+
+
+
 
 
   reverseMap =
+
     L.map("reverseMap")
+
     .setView(
+
       [43.13, -80.75],
+
       11
+
     );
 
 
-  const tileURL =
-    `${API}/tiles/{z}/{x}/{y}.png`;
+
+
+
+  const tileURL = `${API}/tiles/{z}/{x}/{y}.png`;
+
+
+
 
 
   L.tileLayer(
+
     tileURL,
+
     {
+
       maxZoom: 20,
 
       attribution:
+
         "© OpenStreetMap contributors | Geoapify"
+
     }
+
   )
+
   .addTo(map);
 
 
+
+
+
   L.tileLayer(
+
     tileURL,
+
     {
+
       maxZoom: 20,
 
       attribution:
+
         "© OpenStreetMap contributors | Geoapify"
+
     }
+
   )
+
   .addTo(reverseMap);
 
 
+
+
+
   markersLayer =
+
     L.layerGroup()
+
     .addTo(map);
 
 
+
+
+
   reverseMarkersLayer =
+
     L.layerGroup()
+
     .addTo(reverseMap);
 
 }
+
+
+
 
 
 function markerIcon() {
@@ -1984,12 +2966,15 @@ function markerIcon() {
     className: "",
 
     html:
+
       '<div class="marker-dot"></div>',
 
     iconSize:
+
       [13,13],
 
     iconAnchor:
+
       [6,6]
 
   });
@@ -1997,136 +2982,237 @@ function markerIcon() {
 }
 
 
+
+
+
 /* ==========================================================
+
    CLEAR FUNCTIONS
+
 ========================================================== */
 
 function clearForwardResults(
+
   clearInput = true
+
 ) {
 
   forwardResults = [];
 
 
+
+
+
   if (clearInput) {
 
     addresses.value =
+
       "";
 
   }
 
 
+
+
+
   forwardResultsTable.innerHTML =
+
     "";
+
+
+
 
 
   outputBox.value =
+
     "";
 
 
+
+
+
   summary.style.display =
+
     "none";
+
+
+
 
 
   matchedCount.textContent =
+
     "0";
 
   warningCount.textContent =
+
     "0";
 
   outlierCount.textContent =
+
     "0";
 
   failedCount.textContent =
+
     "0";
 
 
+
+
+
   forwardProgressWrap.style.display =
+
     "none";
 
 
+
+
+
   forwardProgressBar.style.width =
+
     "0%";
+
+
+
 
 
   markersLayer.clearLayers();
 
 
+
+
+
   map.setView(
+
     [43.13, -80.75],
+
     11
+
   );
 
 }
 
 
+
+
+
 function clearReverseResults(
+
   clearInput = true
+
 ) {
 
   reverseResults = [];
 
 
+
+
+
   if (clearInput) {
 
     coordinates.value =
+
       "";
 
   }
 
 
+
+
+
   reverseOutput.value =
+
     "";
 
 
+
+
+
   reverseProgressWrap.style.display =
+
     "none";
 
 
+
+
+
   reverseProgressBar.style.width =
+
     "0%";
+
+
+
 
 
   reverseMarkersLayer.clearLayers();
 
 
+
+
+
   reverseMap.setView(
+
     [43.13, -80.75],
+
     11
+
   );
 
 }
 
 
+
+
+
 /* ==========================================================
+
    FORWARD GEOCODING
+
 ========================================================== */
 
 async function runForward() {
 
   const rawAddresses =
+
     addresses.value
+
       .split("\n")
+
       .map(
+
         value =>
+
           value.trim()
+
       )
+
       .filter(Boolean);
 
 
+
+
+
   /*
+
     Remove duplicate input rows while
+
     preserving original order.
+
   */
 
   const uniqueAddresses =
+
     [...new Set(rawAddresses)];
+
+
+
 
 
   if (!uniqueAddresses.length) {
 
     alert(
+
       "Paste at least one address."
+
     );
 
     return;
@@ -2134,91 +3220,147 @@ async function runForward() {
   }
 
 
+
+
+
   clearForwardResults(false);
 
 
+
+
+
   forwardProgressWrap.style.display =
+
     "block";
 
 
+
+
+
   forwardProgressBar.style.width =
+
     "0%";
 
 
+
+
+
   forwardProgressLabel.textContent =
+
     "Geocoding addresses...";
 
 
+
+
+
   forwardProgressCount.textContent =
+
     `0 / ${uniqueAddresses.length}`;
 
 
+
+
+
   for (
+
     let index = 0;
+
     index < uniqueAddresses.length;
+
     index++
+
   ) {
 
     const address =
+
       uniqueAddresses[index];
+
+
+
 
 
     try {
 
       const response =
+
         await fetch(
+
           `${API}/geocode`,
+
           {
 
             method:
+
               "POST",
 
             headers: {
 
               "Content-Type":
+
                 "application/json"
 
             },
 
             body:
+
               JSON.stringify({
 
                 address:
+
                   address,
 
                 country:
+
                   country.value,
 
                 province:
+
                   province.value,
 
                 region:
+
                   region.value,
 
                 municipality:
+
                   municipality.value
 
               })
 
           }
+
         );
+
+
+
 
 
       if (!response.ok) {
 
         throw new Error(
+
           "Geocoding request failed."
+
         );
 
       }
 
 
+
+
+
       const result =
+
         await response.json();
 
 
+
+
+
       forwardResults.push(
+
         result
+
       );
 
     }
@@ -2230,9 +3372,11 @@ async function runForward() {
         success: false,
 
         input:
+
           address,
 
         error:
+
           error.message
 
       });
@@ -2240,36 +3384,69 @@ async function runForward() {
     }
 
 
+
+
+
     const completed =
+
       index + 1;
 
 
+
+
+
     const percent =
+
       (
+
         completed
+
         /
+
         uniqueAddresses.length
+
       )
+
       *
+
       100;
 
 
+
+
+
     forwardProgressBar.style.width =
+
       `${percent}%`;
 
 
+
+
+
     forwardProgressCount.textContent =
+
       (
+
         `${completed} / `
+
         +
+
         uniqueAddresses.length
+
       );
 
   }
 
 
+
+
+
   forwardProgressLabel.textContent =
+
     "Complete";
+
+
+
 
 
   processQA();
@@ -2279,88 +3456,165 @@ async function runForward() {
   updateForwardMap();
 
 
+
+
+
   setTimeout(
+
     () => {
 
       forwardProgressWrap.style.display =
+
         "none";
 
     },
+
     900
+
   );
 
 }
 
 
+
+
+
 /* ==========================================================
+
    QA
+
 ========================================================== */
 
 function processQA() {
 
   const successful =
+
     forwardResults.filter(
+
       result =>
+
         result.success
+
     );
+
+
+
 
 
   const latitudes =
+
     successful
+
       .map(
+
         result =>
+
           Number(result.y)
+
       )
+
       .filter(
+
         Number.isFinite
+
       );
+
+
+
 
 
   const longitudes =
+
     successful
+
       .map(
+
         result =>
+
           Number(result.x)
+
       )
+
       .filter(
+
         Number.isFinite
+
       );
 
 
+
+
+
   const medianLat =
+
     latitudes.length
+
       ? median(latitudes)
+
       : null;
+
+
+
 
 
   const medianLon =
+
     longitudes.length
+
       ? median(longitudes)
+
       : null;
 
 
+
+
+
   const threshold =
+
     Number(
+
       outlierThreshold.value
+
     );
+
+
+
 
 
   const expectedCity =
+
     normalize(
+
       municipality.value
+
     );
+
+
+
 
 
   const expectedRegion =
+
     normalize(
+
       region.value
+
     );
+
+
+
 
 
   const expectedProvince =
+
     normalize(
+
       province.value
+
     );
+
+
+
 
 
   let warnings = 0;
@@ -2370,27 +3624,53 @@ function processQA() {
   let failed = 0;
 
 
+
+
+
   forwardResultsTable.innerHTML =
+
     "";
 
 
+
+
+
   forwardResults.forEach(
+
     result => {
 
 
+
+
+
       let distance =
+
         null;
 
 
+
+
+
       let status =
+
         "Matched";
 
 
+
+
+
       let statusClass =
+
         "status status-ok";
 
 
+
+
+
       const issues = [];
+
+
+
 
 
       if (!result.success) {
@@ -2398,9 +3678,11 @@ function processQA() {
         failed++;
 
         status =
+
           "Failed";
 
         statusClass =
+
           "status status-danger";
 
       }
@@ -2408,12 +3690,17 @@ function processQA() {
       else {
 
         if (
+
           medianLat !== null
+
           &&
+
           medianLon !== null
+
         ) {
 
           distance =
+
             haversineDistance(
 
               Number(result.y),
@@ -2429,128 +3716,221 @@ function processQA() {
         }
 
 
+
+
+
         if (
+
           enableOutliers.checked
+
           &&
+
           successful.length >= 3
+
           &&
+
           distance !== null
+
           &&
+
           distance > threshold
+
         ) {
 
           issues.push(
+
             "Geographic outlier"
+
           );
 
         }
+
+
+
 
 
         const returnedCity =
+
           normalize(
+
             result.city
+
           );
+
+
+
 
 
         const returnedRegion =
+
           normalize(
+
             result.county
+
           );
+
+
+
 
 
         const returnedProvince =
+
           normalize(
+
             result.province
+
           );
 
 
+
+
+
         if (
+
           expectedCity
+
           &&
+
           returnedCity
+
           &&
+
           expectedCity !== returnedCity
+
         ) {
 
           issues.push(
+
             `City mismatch: ${result.city}`
+
           );
 
         }
 
 
+
+
+
         if (
+
           expectedRegion
+
           &&
+
           returnedRegion
+
           &&
+
           !returnedRegion.includes(
+
             expectedRegion
+
           )
+
           &&
+
           !expectedRegion.includes(
+
             returnedRegion
+
           )
+
         ) {
 
           issues.push(
+
             `Region mismatch: ${result.county}`
+
           );
 
         }
 
 
+
+
+
         if (
+
           expectedProvince
+
           &&
+
           returnedProvince
+
           &&
+
           expectedProvince
+
             !==
+
           returnedProvince
+
         ) {
 
           issues.push(
+
             (
+
               "Province mismatch: "
+
               +
+
               result.province
+
             )
+
           );
 
         }
 
 
+
+
+
         if (
+
           issues.includes(
+
             "Geographic outlier"
+
           )
+
         ) {
 
           outliers++;
 
           statusClass =
+
             "status status-danger";
 
         }
 
         else if (
+
           issues.length > 0
+
         ) {
 
           warnings++;
 
           statusClass =
+
             "status status-warning";
 
         }
 
 
+
+
+
         if (
+
           issues.length > 0
+
         ) {
 
           status =
+
             issues.join(" • ");
 
         }
@@ -2558,91 +3938,153 @@ function processQA() {
       }
 
 
+
+
+
       result.cluster_distance_km =
+
         distance !== null
+
           ? Number(
+
               distance.toFixed(2)
+
             )
+
           : "";
 
 
+
+
+
       result.qa_status =
+
         status;
 
 
+
+
+
       const row =
+
         document.createElement(
+
           "tr"
+
         );
+
+
+
 
 
       row.innerHTML = `
 
         <td>
+
           ${escapeHtml(
+
             result.input ?? ""
+
           )}
+
         </td>
 
         <td>
+
           ${escapeHtml(
+
             result.formatted_address
+
             ??
+
             ""
+
           )}
+
         </td>
 
         <td class="coord">
+
           ${result.x ?? ""}
+
         </td>
 
         <td class="coord">
+
           ${result.y ?? ""}
+
         </td>
 
         <td>
+
           ${escapeHtml(
+
             result.city ?? ""
+
           )}
+
         </td>
 
         <td>
+
           ${escapeHtml(
+
             result.county ?? ""
+
           )}
+
         </td>
 
         <td>
+
           ${escapeHtml(
+
             result.province ?? ""
+
           )}
+
         </td>
 
         <td>
+
           ${escapeHtml(
+
             result.postcode ?? ""
+
           )}
+
         </td>
 
         <td class="coord">
+
           ${
+
             distance !== null
 
               ? distance
+
                   .toFixed(2)
+
                   +
+
                 " km"
 
               : ""
+
           }
+
         </td>
 
         <td>
 
           <span
+
             class="${statusClass}"
+
           >
+
             ${escapeHtml(status)}
+
           </span>
 
         </td>
@@ -2650,39 +4092,71 @@ function processQA() {
       `;
 
 
+
+
+
       forwardResultsTable
+
         .appendChild(
+
           row
+
         );
 
     }
+
   );
 
 
+
+
+
   matchedCount.textContent =
+
     successful.length;
 
 
+
+
+
   warningCount.textContent =
+
     warnings;
 
 
+
+
+
   outlierCount.textContent =
+
     outliers;
 
 
+
+
+
   failedCount.textContent =
+
     failed;
 
 
+
+
+
   summary.style.display =
+
     "grid";
 
 }
 
 
+
+
+
 /* ==========================================================
+
    OUTPUT SELECTOR
+
 ========================================================== */
 
 function updateOutput() {
@@ -2692,68 +4166,95 @@ function updateOutput() {
     xy: {
 
       title:
+
         "X,Y Coordinates",
 
       subtitle:
+
         "Longitude, Latitude",
 
       field:
+
         "xy"
 
     },
 
 
+
+
+
     yx: {
 
       title:
+
         "Y,X Coordinates",
 
       subtitle:
+
         "Latitude, Longitude",
 
       field:
+
         "yx"
 
     },
 
 
+
+
+
     x: {
 
       title:
+
         "Longitude / X",
 
       subtitle:
+
         "Longitude only",
 
       field:
+
         "x"
 
     },
 
 
+
+
+
     y: {
 
       title:
+
         "Latitude / Y",
 
       subtitle:
+
         "Latitude only",
 
       field:
+
         "y"
 
     },
 
 
+
+
+
     formatted_address: {
 
       title:
+
         "Full Addresses",
 
       subtitle:
+
         "Standardized address",
 
       field:
+
         "formatted_address"
 
     }
@@ -2761,44 +4262,79 @@ function updateOutput() {
   };
 
 
+
+
+
   const selected =
+
     config[
+
       outputFormat.value
+
     ];
 
 
+
+
+
   outputTitle.textContent =
+
     selected.title;
 
 
+
+
+
   outputSubtitle.textContent =
+
     selected.subtitle;
 
 
+
+
+
   outputBox.value =
+
     forwardResults
+
       .map(
+
         result =>
+
           result[selected.field]
+
           ??
+
           ""
+
       )
+
       .join("\n");
 
 }
 
 
+
+
+
 function copyOutput() {
 
   navigator.clipboard.writeText(
+
     outputBox.value
+
   );
 
 }
 
 
+
+
+
 /* ==========================================================
+
    FORWARD MAP
+
 ========================================================== */
 
 function updateForwardMap() {
@@ -2806,75 +4342,143 @@ function updateForwardMap() {
   markersLayer.clearLayers();
 
 
+
+
+
   const successful =
+
     forwardResults.filter(
+
       result =>
+
         result.success
+
         &&
+
         Number.isFinite(
+
           Number(result.y)
+
         )
+
         &&
+
         Number.isFinite(
+
           Number(result.x)
+
         )
+
     );
 
 
+
+
+
   if (!successful.length) {
+
     return;
+
   }
+
+
+
 
 
   const bounds = [];
 
 
+
+
+
   successful.forEach(
+
     result => {
 
 
+
+
+
       const lat =
+
         Number(result.y);
 
 
+
+
+
       const lon =
+
         Number(result.x);
 
 
+
+
+
       L.marker(
+
         [lat,lon],
+
         {
+
           icon:
+
             markerIcon()
+
         }
+
       )
+
       .bindPopup(
+
         escapeHtml(
+
           result.formatted_address
+
           ??
+
           result.input
+
         )
+
       )
+
       .addTo(
+
         markersLayer
+
       );
+
+
+
 
 
       bounds.push(
+
         [lat,lon]
+
       );
 
     }
+
   );
 
 
+
+
+
   if (
+
     bounds.length === 1
+
   ) {
 
     map.setView(
+
       bounds[0],
+
       16
+
     );
 
   }
@@ -2882,11 +4486,17 @@ function updateForwardMap() {
   else {
 
     map.fitBounds(
+
       bounds,
+
       {
+
         padding:
+
           [35,35]
+
       }
+
     );
 
   }
@@ -2894,30 +4504,51 @@ function updateForwardMap() {
 }
 
 
+
+
+
 /* ==========================================================
+
    REVERSE GEOCODING
+
 ========================================================== */
 
 async function runReverse() {
 
   const rawLines =
+
     coordinates.value
+
       .split("\n")
+
       .map(
+
         value =>
+
           value.trim()
+
       )
+
       .filter(Boolean);
 
 
+
+
+
   const uniqueLines =
+
     [...new Set(rawLines)];
+
+
+
 
 
   if (!uniqueLines.length) {
 
     alert(
+
       "Paste at least one coordinate pair."
+
     );
 
     return;
@@ -2925,40 +4556,77 @@ async function runReverse() {
   }
 
 
+
+
+
   clearReverseResults(false);
 
 
+
+
+
   reverseProgressWrap.style.display =
+
     "block";
 
 
+
+
+
   reverseProgressBar.style.width =
+
     "0%";
 
 
+
+
+
   reverseProgressLabel.textContent =
+
     "Reverse geocoding...";
 
 
+
+
+
   reverseProgressCount.textContent =
+
     `0 / ${uniqueLines.length}`;
 
 
+
+
+
   for (
+
     let index = 0;
+
     index < uniqueLines.length;
+
     index++
+
   ) {
 
     const line =
+
       uniqueLines[index];
 
 
+
+
+
     const parsed =
+
       parseCoordinates(
+
         line,
+
         coordinateOrder.value
+
       );
+
+
+
 
 
     if (!parsed) {
@@ -2968,9 +4636,11 @@ async function runReverse() {
         success: false,
 
         input:
+
           line,
 
         error:
+
           "Invalid coordinate pair."
 
       });
@@ -2982,48 +4652,75 @@ async function runReverse() {
       try {
 
         const response =
+
           await fetch(
+
             `${API}/reverse`,
+
             {
 
               method:
+
                 "POST",
 
               headers: {
 
                 "Content-Type":
+
                   "application/json"
 
               },
 
               body:
+
                 JSON.stringify(
+
                   parsed
+
                 )
 
             }
+
           );
+
+
+
 
 
         if (!response.ok) {
 
           throw new Error(
+
             "Reverse request failed."
+
           );
 
         }
 
 
+
+
+
         const result =
+
           await response.json();
 
 
+
+
+
         result.input =
+
           line;
 
 
+
+
+
         reverseResults.push(
+
           result
+
         );
 
       }
@@ -3035,9 +4732,11 @@ async function runReverse() {
           success: false,
 
           input:
+
             line,
 
           error:
+
             error.message
 
         });
@@ -3047,67 +4746,123 @@ async function runReverse() {
     }
 
 
+
+
+
     const completed =
+
       index + 1;
 
 
+
+
+
     const percent =
+
       (
+
         completed
+
         /
+
         uniqueLines.length
+
       )
+
       *
+
       100;
 
 
+
+
+
     reverseProgressBar.style.width =
+
       `${percent}%`;
 
 
+
+
+
     reverseProgressCount.textContent =
+
       (
+
         `${completed} / `
+
         +
+
         uniqueLines.length
+
       );
 
   }
 
 
+
+
+
   reverseOutput.value =
+
     reverseResults
+
       .map(
+
         result =>
+
           result.formatted_address
+
           ??
+
           ""
+
       )
+
       .join("\n");
+
+
+
 
 
   updateReverseMap();
 
 
+
+
+
   reverseProgressLabel.textContent =
+
     "Complete";
 
 
+
+
+
   setTimeout(
+
     () => {
 
       reverseProgressWrap.style.display =
+
         "none";
 
     },
+
     900
+
   );
 
 }
 
 
+
+
+
 /* ==========================================================
+
    REVERSE MAP
+
 ========================================================== */
 
 function updateReverseMap() {
@@ -3115,31 +4870,61 @@ function updateReverseMap() {
   reverseMarkersLayer.clearLayers();
 
 
+
+
+
   const successful =
+
     reverseResults.filter(
+
       result =>
+
         result.success
+
         &&
+
         Number.isFinite(
+
           Number(result.y)
+
         )
+
         &&
+
         Number.isFinite(
+
           Number(result.x)
+
         )
+
     );
 
 
+
+
+
   if (!successful.length) {
+
     return;
+
   }
+
+
+
 
 
   const bounds = [];
 
 
+
+
+
   successful.forEach(
+
     result => {
+
+
+
 
 
       const point = [
@@ -3151,40 +4936,73 @@ function updateReverseMap() {
       ];
 
 
+
+
+
       L.marker(
+
         point,
+
         {
+
           icon:
+
             markerIcon()
+
         }
+
       )
+
       .bindPopup(
+
         escapeHtml(
+
           result.formatted_address
+
           ??
+
           ""
+
         )
+
       )
+
       .addTo(
+
         reverseMarkersLayer
+
       );
+
+
+
 
 
       bounds.push(
+
         point
+
       );
 
     }
+
   );
 
 
+
+
+
   if (
+
     bounds.length === 1
+
   ) {
 
     reverseMap.setView(
+
       bounds[0],
+
       16
+
     );
 
   }
@@ -3192,11 +5010,17 @@ function updateReverseMap() {
   else {
 
     reverseMap.fitBounds(
+
       bounds,
+
       {
+
         padding:
+
           [35,35]
+
       }
+
     );
 
   }
@@ -3204,8 +5028,13 @@ function updateReverseMap() {
 }
 
 
+
+
+
 /* ==========================================================
+
    CSV EXPORT
+
 ========================================================== */
 
 function exportForwardCSV() {
@@ -3241,6 +5070,9 @@ function exportForwardCSV() {
   ];
 
 
+
+
+
   exportCSV(
 
     forwardResults,
@@ -3252,6 +5084,9 @@ function exportForwardCSV() {
   );
 
 }
+
+
+
 
 
 function exportReverseCSV() {
@@ -3279,6 +5114,9 @@ function exportReverseCSV() {
   ];
 
 
+
+
+
   exportCSV(
 
     reverseResults,
@@ -3292,16 +5130,25 @@ function exportReverseCSV() {
 }
 
 
+
+
+
 function exportCSV(
+
   rows,
+
   fields,
+
   filename
+
 ) {
 
   if (!rows.length) {
 
     alert(
+
       "There are no results to export."
+
     );
 
     return;
@@ -3309,27 +5156,49 @@ function exportCSV(
   }
 
 
+
+
+
   const escape =
+
     value => {
 
       const text =
+
         String(
+
           value ?? ""
+
         );
 
 
+
+
+
       return (
+
         '"'
+
         +
+
         text.replace(
+
           /"/g,
+
           '""'
+
         )
+
         +
+
         '"'
+
       );
 
     };
+
+
+
 
 
   const csv = [
@@ -3337,96 +5206,179 @@ function exportCSV(
     fields.join(","),
 
     ...rows.map(
+
       row =>
+
         fields
+
           .map(
+
             field =>
+
               escape(
+
                 row[field]
+
               )
+
           )
+
           .join(",")
+
     )
 
   ].join("\n");
 
 
+
+
+
   const blob =
+
     new Blob(
+
       [
+
         "\uFEFF"
+
         +
+
         csv
+
       ],
+
       {
+
         type:
+
           "text/csv;charset=utf-8"
+
       }
+
     );
+
+
+
 
 
   const url =
+
     URL.createObjectURL(
+
       blob
+
     );
+
+
+
 
 
   const link =
+
     document.createElement(
+
       "a"
+
     );
 
 
+
+
+
   link.href =
+
     url;
 
 
+
+
+
   link.download =
+
     filename;
 
 
+
+
+
   document.body.appendChild(
+
     link
+
   );
+
+
+
 
 
   link.click();
 
 
+
+
+
   document.body.removeChild(
+
     link
+
   );
 
 
+
+
+
   URL.revokeObjectURL(
+
     url
+
   );
 
 }
 
 
+
+
+
 /* ==========================================================
+
    HELPERS
+
 ========================================================== */
 
 function median(values) {
 
   const sorted =
+
     [...values]
+
       .sort(
+
         (a,b) =>
+
           a-b
+
       );
 
 
+
+
+
   const middle =
+
     Math.floor(
+
       sorted.length / 2
+
     );
 
 
+
+
+
   if (
+
     sorted.length % 2
+
   ) {
 
     return sorted[middle];
@@ -3434,79 +5386,139 @@ function median(values) {
   }
 
 
+
+
+
   return (
+
     sorted[middle - 1]
+
     +
+
     sorted[middle]
+
   ) / 2;
 
 }
 
 
+
+
+
 function haversineDistance(
+
   lat1,
+
   lon1,
+
   lat2,
+
   lon2
+
 ) {
 
   const radius =
+
     6371;
 
 
+
+
+
   const radians =
+
     value =>
+
       value
+
       *
+
       Math.PI
+
       /
+
       180;
 
 
+
+
+
   const dLat =
+
     radians(
+
       lat2 - lat1
+
     );
+
+
+
 
 
   const dLon =
+
     radians(
+
       lon2 - lon1
+
     );
+
+
+
 
 
   const a =
 
     Math.sin(
+
       dLat / 2
+
     ) ** 2
 
     +
 
     Math.cos(
+
       radians(lat1)
+
     )
 
     *
 
     Math.cos(
+
       radians(lat2)
+
     )
 
     *
 
     Math.sin(
+
       dLon / 2
+
     ) ** 2;
 
 
+
+
+
   const c =
+
     2
+
     *
+
     Math.atan2(
+
       Math.sqrt(a),
+
       Math.sqrt(1-a)
+
     );
+
+
+
 
 
   return radius * c;
@@ -3514,26 +5526,47 @@ function haversineDistance(
 }
 
 
+
+
+
 function parseCoordinates(
+
   line,
+
   order
+
 ) {
 
   const values =
+
     line
+
       .split(
+
         /[\t,; ]+/
+
       )
+
       .filter(Boolean)
+
       .map(Number);
 
 
+
+
+
   if (
+
     values.length !== 2
+
     ||
+
     values.some(
+
       Number.isNaN
+
     )
+
   ) {
 
     return null;
@@ -3541,16 +5574,27 @@ function parseCoordinates(
   }
 
 
+
+
+
   if (order === "xy") {
 
     if (
+
       values[1] < -90
+
       ||
+
       values[1] > 90
+
       ||
+
       values[0] < -180
+
       ||
+
       values[0] > 180
+
     ) {
 
       return null;
@@ -3558,12 +5602,17 @@ function parseCoordinates(
     }
 
 
+
+
+
     return {
 
       longitude:
+
         values[0],
 
       latitude:
+
         values[1]
 
     };
@@ -3571,14 +5620,25 @@ function parseCoordinates(
   }
 
 
+
+
+
   if (
+
     values[0] < -90
+
     ||
+
     values[0] > 90
+
     ||
+
     values[1] < -180
+
     ||
+
     values[1] > 180
+
   ) {
 
     return null;
@@ -3586,12 +5646,17 @@ function parseCoordinates(
   }
 
 
+
+
+
   return {
 
     latitude:
+
       values[0],
 
     longitude:
+
       values[1]
 
   };
@@ -3599,31 +5664,55 @@ function parseCoordinates(
 }
 
 
+
+
+
 function normalize(value) {
 
   return String(
+
     value ?? ""
+
   )
+
   .trim()
+
   .toLowerCase()
+
   .replace(
+
     /\s+/g,
+
     " "
+
   );
 
 }
 
 
+
+
+
 function escapeHtml(value) {
 
   const div =
+
     document.createElement(
+
       "div"
+
     );
 
 
+
+
+
   div.textContent =
+
     value ?? "";
+
+
+
 
 
   return div.innerHTML;
@@ -3631,247 +5720,465 @@ function escapeHtml(value) {
 }
 
 
+
+
+
 /* ==========================================================
+
    TAB EVENTS
+
 ========================================================== */
 
 document
+
   .getElementById(
+
     "forwardTabBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     () => {
 
       document
+
         .getElementById(
+
           "forwardTab"
+
         )
+
         .classList
+
         .add("active");
 
 
+
+
+
       document
+
         .getElementById(
+
           "reverseTab"
+
         )
+
         .classList
+
         .remove("active");
 
 
+
+
+
       document
+
         .getElementById(
+
           "forwardTabBtn"
+
         )
+
         .classList
+
         .add("active");
 
 
+
+
+
       document
+
         .getElementById(
+
           "reverseTabBtn"
+
         )
+
         .classList
+
         .remove("active");
+
+
+
 
 
       setTimeout(
+
         () =>
+
           map.invalidateSize(),
+
         50
+
       );
 
     }
+
   );
+
+
+
 
 
 document
+
   .getElementById(
+
     "reverseTabBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     () => {
 
       document
+
         .getElementById(
+
           "reverseTab"
+
         )
+
         .classList
+
         .add("active");
 
 
+
+
+
       document
+
         .getElementById(
+
           "forwardTab"
+
         )
+
         .classList
+
         .remove("active");
 
 
+
+
+
       document
+
         .getElementById(
+
           "reverseTabBtn"
+
         )
+
         .classList
+
         .add("active");
 
 
+
+
+
       document
+
         .getElementById(
+
           "forwardTabBtn"
+
         )
+
         .classList
+
         .remove("active");
+
+
+
 
 
       setTimeout(
+
         () =>
+
           reverseMap.invalidateSize(),
+
         50
+
       );
 
     }
+
   );
+
+
+
 
 
 /* ==========================================================
+
    ACTION EVENTS
+
 ========================================================== */
 
 document
+
   .getElementById(
+
     "geocodeBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     runForward
+
   );
 
 
+
+
+
 document
+
   .getElementById(
+
     "reverseBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     runReverse
+
   );
 
 
+
+
+
 document
+
   .getElementById(
+
     "clearForwardBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     () =>
+
       clearForwardResults(
+
         true
+
       )
+
   );
+
+
+
 
 
 document
+
   .getElementById(
+
     "clearReverseBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     () =>
+
       clearReverseResults(
+
         true
+
       )
+
   );
+
+
+
 
 
 outputFormat.addEventListener(
+
   "change",
+
   updateOutput
+
 );
 
 
+
+
+
 document
+
   .getElementById(
+
     "copyOutputBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     copyOutput
+
   );
 
 
+
+
+
 document
+
   .getElementById(
+
     "copyOutputBtn2"
+
   )
+
   .addEventListener(
+
     "click",
+
     copyOutput
+
   );
 
 
+
+
+
 document
+
   .getElementById(
+
     "copyReverseBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     () => {
 
       navigator
+
         .clipboard
+
         .writeText(
+
           reverseOutput.value
+
         );
 
     }
+
   );
 
 
+
+
+
 document
+
   .getElementById(
+
     "exportForwardBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     exportForwardCSV
+
   );
+
+
+
 
 
 document
+
   .getElementById(
+
     "exportReverseBtn"
+
   )
+
   .addEventListener(
+
     "click",
+
     exportReverseCSV
+
   );
+
+
+
 
 
 /* ==========================================================
+
    COUNTRY CHANGE
+
 ========================================================== */
 
 country.addEventListener(
+
   "change",
+
   () => {
 
     province.value =
+
       "";
 
     region.value =
+
       "";
 
     municipality.value =
+
       "";
 
   }
+
 );
 
 
+
+
+
 /* ==========================================================
+
    START
+
 ========================================================== */
 
 initializeMaps();
